@@ -4,8 +4,6 @@ require_once("myclass.php");
 
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 
