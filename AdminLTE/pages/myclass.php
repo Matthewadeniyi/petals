@@ -32,14 +32,20 @@ class Profile{
         elseif(array_key_exists('AddTeacher', $_POST)){
             $this-> AddTeacher();
         }
-        elseif(array_key_exists('AddResult', $_POST)){
-            $this->AddResult();
+        elseif(array_key_exists('updateCa', $_POST)){
+            $this->updateCa();
+        }
+        elseif(array_key_exists('updategrade', $_POST)){
+            $this-> updategrade();
         }
         elseif (array_key_exists('Term', $_POST)) {
             $this->Term();
         }
         elseif(array_key_exists('updatePermission', $_POST)){
             $this-> updatePermission();
+        }
+        else if(array_key_exists('FeeCategory', $_POST)){
+            $this-> FeeCategory();
         }
     }
 
@@ -177,38 +183,41 @@ class Profile{
             return;
         }
 
-        function AddResult(){
+        function updateCa(){
+            
             global $con;
             $ca1 = $_POST['ca1'];
             $ca2 = $_POST['ca2'];
             $ca3 = $_POST['ca3'];
             $exam = $_POST['exam'];
-            $total = $_POST['ca1'] + $_POST['ca2'] + $_POST['ca3'] +$_POST['exam'];
-            $remark;
-            $grades;
+            
+            // $ar = $_POST['Ar'];
+            // $br = $_POST['br'];
+            // $cr = $_POST['cr'];
+            // $dr = $_POST['dr'];
+            // $er = $_POST['er'];
+            // $fr = $_POST['fr'];
 
-            if( $total > 69 && $total <101 ){
-                $remark ='Excellent';
-                $grade='A';
-            } elseif($total > 59 && $total <70){
-                $remarks ='Very Good';
-                $grades ='B';
-            }elseif($total > 49 && $total <60){
-                $remarks ='Good';
-                $grades='C';
-            }elseif($total > 44 && $total < 50){
-                $remarks =  'Pass';
-                $grades = 'D';
-            }elseif($total >39 && $total < 45){
-                $remarks='Poor';
-                $grades='E';
-            }elseif($total >= 0 && $total < 40){
-                $remarks ='Fail';
-                $grades ='F';
-            }
 
-            $sql = $con->query("INSERT INTO resultsetup(ca1, ca2, ca3, exam ) VALUES('$ca1', '$ca2', '$ca3', '$exam')");
+            $sql = $con->query("UPDATE resultsetup SET ca1='$ca1', ca2='$ca2', ca3='$ca3', exam='$exam' WHERE sn=1");
     
+        }
+        function updategrade(){
+            global $con;
+            $a = $_POST['A'];
+            $b = $_POST['B'];
+            $c = $_POST['C'];
+            $d = $_POST['C'];
+            $e = $_POST['E'];
+            $f = $_POST['F'];
+            // $ar = $_POST['Ar'];
+            // $br = $_POST['br'];
+            // $cr = $_POST['cr'];
+            // $dr = $_POST['dr'];
+            // $er = $_POST['er'];
+            // $fr = $_POST['fr'];
+            $sql = $con->query("UPDATE resultsetup SET a='$a', b='$b', c='$c', d='$d',e='$f',f='$f'  WHERE sn=1");
+
         }
         function updatePermission(){
             global $con;
@@ -255,7 +264,13 @@ class Profile{
                 $i++;
                 $sql = $con->query("INSERT into term(session,term) VALUES ('$session','$i')");
             }
-        return;
+            return;
+        }
+        function FeeCategory(){
+            global $con;
+            $feecategory = $_POST['feecategory'];
+            $feedescription = $_POST['feedescription'];
+            $sql = $con->query("INSERT into feecategory(fee)");
         }
 }
 

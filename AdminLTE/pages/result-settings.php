@@ -110,7 +110,7 @@
           <input type="number" name="exam" class="form-control" placeholder="Exam">
          </div>
          <div class="col-md-6 col-12 form-group">
-          <button class="btn btn-secondary mt-md-4 float-right updateCa" name="AddResult">Save</button>
+          <button class="btn btn-secondary mt-md-4 float-right updateCa" name="updateCa">Save</button>
          </div>
         </form>
        </div>
@@ -139,37 +139,37 @@
            </tr>
            <tr>
             <th>A</th>
-            <td><input type="number" class="form-control form-control-sm" style="width: 60px"></td>
+            <td><input type="number" name='A' class="form-control form-control-sm" style="width: 60px"></td>
             <td><input type="text" class="form-control form-control-sm"></td>
            </tr>
            <tr>
             <th>B</th>
-            <td><input type="number" class="form-control form-control-sm" style="width: 60px"></td>
+            <td><input type="number" name='B' class="form-control form-control-sm" style="width: 60px"></td>
             <td><input type="text" class="form-control form-control-sm"></td>
            </tr>
            <tr>
             <th>C</th>
-            <td><input type="number" class="form-control form-control-sm" style="width: 60px"></td>
+            <td><input type="number"  name='C'class="form-control form-control-sm" style="width: 60px"></td>
             <td><input type="text" class="form-control form-control-sm"></td>
            </tr>
            <tr>
             <th>D</th>
-            <td><input type="number" class="form-control form-control-sm" style="width: 60px"></td>
+            <td><input type="number" name='D' class="form-control form-control-sm" style="width: 60px"></td>
             <td><input type="text" class="form-control form-control-sm"></td>
            </tr>
            <tr>
             <th>E</th>
-            <td><input type="number" class="form-control form-control-sm" style="width: 60px"></td>
+            <td><input type="number" name='E' class="form-control form-control-sm" style="width: 60px"></td>
             <td><input type="text" class="form-control form-control-sm"></td>
            </tr>
            <tr>
             <th>F</th>
-            <td><input type="number" class="form-control form-control-sm" style="width: 60px"></td>
+            <td><input type="number" name='F' class="form-control form-control-sm" style="width: 60px"></td>
             <td><input type="text" class="form-control form-control-sm"></td>
            </tr>
            <tr>
             <td colspan="3">
-             <button class="btn btn-secondary float-right update_grade">Submit</button>
+             <button class="btn btn-secondary float-right update_grade" name='updategrade'>Submit</button>
             </td>
            </tr>
           </table>

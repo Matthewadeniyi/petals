@@ -1,3 +1,6 @@
+<?php
+  require_once("myclass.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,14 +64,12 @@
                 <div class="form-group">
                   <label for="">Select class</label>
                   <select class="form-control select2bs4" style="width: 100%;" placeholder="Select Guardian">
-                  <option disabled selected value="Select Guardian">Select Guardian</option>
-                    <option ></option>
-                    <option></option>
-                    <option ></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
+                  <option disabled selected value="Select Guardian">Select Class</option>
+                      <?php   $i=1; $sql = $con->query("SELECT * FROM class");
+                      while ($rows = $sql->fetch_assoc()) {
+                        echo '<option value="'.$rows['sn'].'">'.$rows['category'].'</option>';
+                      }
+                      ?>
                   </select>
                 </div>
                 <!-- /.form-group -->
