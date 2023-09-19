@@ -139,33 +139,142 @@
            </tr>
            <tr>
             <th>A</th>
-            <td><input type="number" name='A' class="form-control form-control-sm" style="width: 60px"></td>
-            <td><input type="text" class="form-control form-control-sm"></td>
+            <td>
+              <!-- <input type="number" name='A' class="form-control form-control-sm" style="width: 60px"> -->
+              <?php
+                $i = 1;
+                $sql = $con->query("SELECT * FROM resultsetup");
+                while ($rows = $sql->fetch_assoc()) {
+                  echo '<input type="text" name="A" class="form-control form-control-sm" style="width: 60px" value="' . $rows['a'] . '">';
+                }
+                ?>
+
+            </td>
+            <td>
+                <?php
+                $i = 1;
+                $sql = $con->query("SELECT * FROM resultsetup");
+                while ($rows = $sql->fetch_assoc()) {
+                  echo '<input type="text" name="Ar" class="form-control form-control-sm" value="' . $rows['ar'] . '">';
+                }
+                ?>
+            </td>
+
            </tr>
            <tr>
             <th>B</th>
-            <td><input type="number" name='B' class="form-control form-control-sm" style="width: 60px"></td>
-            <td><input type="text" class="form-control form-control-sm"></td>
+            <td>
+              <!-- <input type="number" name='B' class="form-control form-control-sm" style="width: 60px"> -->
+              <?php
+                $i = 1;
+                $sql = $con->query("SELECT * FROM resultsetup");
+                while ($rows = $sql->fetch_assoc()) {
+                  echo '<input type="text" name="B" class="form-control form-control-sm" style="width: 60px" value="' . $rows['a'] . '">';
+                }
+                ?>
+            </td>
+            <td>
+              <!-- <input type="text" name='Br' class="form-control form-control-sm"> -->
+              <?php
+                $i = 1;
+                $sql = $con->query("SELECT * FROM resultsetup");
+                while ($rows = $sql->fetch_assoc()) {
+                  echo '<input type="text" name="Br" class="form-control form-control-sm" value="' . $rows['br'] . '">';
+                }
+                ?>
+            </td>
            </tr>
            <tr>
             <th>C</th>
-            <td><input type="number"  name='C'class="form-control form-control-sm" style="width: 60px"></td>
-            <td><input type="text" class="form-control form-control-sm"></td>
+            <td>
+              <!-- <input type="number"  name='C'class="form-control form-control-sm" style="width: 60px"> -->
+              <?php
+                $i = 1;
+                $sql = $con->query("SELECT * FROM resultsetup");
+                while ($rows = $sql->fetch_assoc()) {
+                  echo '<input type="text" name="C" class="form-control form-control-sm" style="width: 60px" value="' . $rows['a'] . '">';
+                }
+                ?>
+            </td>
+            <td>
+              <!-- <input type="text" name='Cr' class="form-control form-control-sm"> -->
+              <?php
+                $i = 1;
+                $sql = $con->query("SELECT * FROM resultsetup");
+                while ($rows = $sql->fetch_assoc()) {
+                  echo '<input type="text" name="Cr" class="form-control form-control-sm" value="' . $rows['cr'] . '">';
+                }
+                ?>
+            </td>
            </tr>
            <tr>
             <th>D</th>
-            <td><input type="number" name='D' class="form-control form-control-sm" style="width: 60px"></td>
-            <td><input type="text" class="form-control form-control-sm"></td>
+            <td>
+              <!-- <input type="number" name='D' class="form-control form-control-sm" style="width: 60px"> -->
+              <?php
+                $i = 1;
+                $sql = $con->query("SELECT * FROM resultsetup");
+                while ($rows = $sql->fetch_assoc()) {
+                  echo '<input type="text" name="D" class="form-control form-control-sm" style="width: 60px" value="' . $rows['d'] . '">';
+                }
+                ?>
+            </td>
+            <td>
+              <!-- <input type="text" name='Dr' class="form-control form-control-sm"> -->
+              <?php
+                $i = 1;
+                $sql = $con->query("SELECT * FROM resultsetup");
+                while ($rows = $sql->fetch_assoc()) {
+                  echo '<input type="text" name="Dr" class="form-control form-control-sm" value="' . $rows['dr'] . '">';
+                }
+                ?>
+            </td>
            </tr>
            <tr>
             <th>E</th>
-            <td><input type="number" name='E' class="form-control form-control-sm" style="width: 60px"></td>
-            <td><input type="text" class="form-control form-control-sm"></td>
+            <td>
+              <!-- <input type="number" name='E' class="form-control form-control-sm" style="width: 60px"> -->
+              <?php
+                $i = 1;
+                $sql = $con->query("SELECT * FROM resultsetup");
+                while ($rows = $sql->fetch_assoc()) {
+                  echo '<input type="text" name="E" class="form-control form-control-sm" style="width: 60px" value="' . $rows['e'] . '">';
+                }
+                ?>
+            </td>
+            <td>
+              <!-- <input type="text" name='Er' class="form-control form-control-sm"> -->
+              <?php
+                $i = 1;
+                $sql = $con->query("SELECT * FROM resultsetup");
+                while ($rows = $sql->fetch_assoc()) {
+                  echo '<input type="text" name="Er" class="form-control form-control-sm" value="' . $rows['er'] . '">';
+                }
+                ?>
+            </td>
            </tr>
            <tr>
             <th>F</th>
-            <td><input type="number" name='F' class="form-control form-control-sm" style="width: 60px"></td>
-            <td><input type="text" class="form-control form-control-sm"></td>
+            <td>
+              <!-- <input type="number" name='F' class="form-control form-control-sm" style="width: 60px"> -->
+              <?php
+                $i = 1;
+                $sql = $con->query("SELECT * FROM resultsetup");
+                while ($rows = $sql->fetch_assoc()) {
+                  echo '<input type="text" name="F" class="form-control form-control-sm" style="width: 60px" value="' . $rows['f'] . '">';
+                }
+                ?>
+            </td>
+            <td>
+              <!-- <input type="text" name='Fr' class="form-control form-control-sm"> -->
+              <?php
+                $i = 1;
+                $sql = $con->query("SELECT * FROM resultsetup");
+                while ($rows = $sql->fetch_assoc()) {
+                  echo '<input type="text" name="Fr" class="form-control form-control-sm" value="' . $rows['fr'] . '">';
+                }
+                ?>
+            </td>
            </tr>
            <tr>
             <td colspan="3">

@@ -210,13 +210,14 @@ class Profile{
             $d = $_POST['C'];
             $e = $_POST['E'];
             $f = $_POST['F'];
-            // $ar = $_POST['Ar'];
-            // $br = $_POST['br'];
-            // $cr = $_POST['cr'];
-            // $dr = $_POST['dr'];
-            // $er = $_POST['er'];
-            // $fr = $_POST['fr'];
-            $sql = $con->query("UPDATE resultsetup SET a='$a', b='$b', c='$c', d='$d',e='$f',f='$f'  WHERE sn=1");
+            $ar = $_POST['Ar'];
+            $br = $_POST['Br'];
+            $cr = $_POST['Cr'];
+            $dr = $_POST['Dr'];
+            $er = $_POST['Er'];
+            $fr = $_POST['Fr'];
+            
+            $sql = $con->query("UPDATE resultsetup SET a='$a', b='$b', c='$c', d='$d',e='$f',f='$f',ar='$ar',br='$br',cr='$cr',dr='$dr',er='$er',fr='$fr'  WHERE sn=1");
 
         }
         function updatePermission(){
