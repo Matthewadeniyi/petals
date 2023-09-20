@@ -169,7 +169,7 @@
                 $i = 1;
                 $sql = $con->query("SELECT * FROM resultsetup");
                 while ($rows = $sql->fetch_assoc()) {
-                  echo '<input type="text" name="B" class="form-control form-control-sm" style="width: 60px" value="' . $rows['a'] . '">';
+                  echo '<input type="text" name="B" class="form-control form-control-sm" style="width: 60px" value="' . $rows['b'] . '">';
                 }
                 ?>
             </td>
@@ -192,7 +192,7 @@
                 $i = 1;
                 $sql = $con->query("SELECT * FROM resultsetup");
                 while ($rows = $sql->fetch_assoc()) {
-                  echo '<input type="text" name="C" class="form-control form-control-sm" style="width: 60px" value="' . $rows['a'] . '">';
+                  echo '<input type="text" name="C" class="form-control form-control-sm" style="width: 60px" value="' . $rows['c'] . '">';
                 }
                 ?>
             </td>
@@ -238,7 +238,7 @@
                 $i = 1;
                 $sql = $con->query("SELECT * FROM resultsetup");
                 while ($rows = $sql->fetch_assoc()) {
-                  echo '<input type="text" name="E" class="form-control form-control-sm" style="width: 60px" value="' . $rows['e'] . '">';
+                  echo '<input type="text" name="E" class="form-control form-control-sm" style="width: 60px" value="' . $rows['a'] . '">';
                 }
                 ?>
             </td>

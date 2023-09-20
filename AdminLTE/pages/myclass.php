@@ -200,6 +200,7 @@ class Profile{
 
 
             $sql = $con->query("UPDATE resultsetup SET ca1='$ca1', ca2='$ca2', ca3='$ca3', exam='$exam' WHERE sn=1");
+            return;
     
         }
         function updategrade(){
@@ -216,8 +217,9 @@ class Profile{
             $dr = $_POST['Dr'];
             $er = $_POST['Er'];
             $fr = $_POST['Fr'];
-            
+
             $sql = $con->query("UPDATE resultsetup SET a='$a', b='$b', c='$c', d='$d',e='$f',f='$f',ar='$ar',br='$br',cr='$cr',dr='$dr',er='$er',fr='$fr'  WHERE sn=1");
+            return;
 
         }
         function updatePermission(){
