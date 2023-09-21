@@ -52,25 +52,6 @@ class Profile{
     function SignUp(){
          global $con;
 
-
-         $firstname = $lastname = $email = $password =""; 
-         $errors = ['firstname' => '', 'lastname'=> '', 'email'=>'', 'password'=>''];
- 
-         if(isset($_POST['signup'])){
- 
-         
-           // to validate email address
-           if(empty ($_POST['email'])){
-               $errors['email'] = "An email address is required";
-           } else{
-               $email = $_POST['email'];
-               if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-                   $errors['email'] = "email must be a valid email address";
-               }
-           }
-       }
-
-
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];
         $email =$_POST['email'];
@@ -84,17 +65,17 @@ class Profile{
  
         function Login(){
             global $con,$report,$count;
-                $email = $_POST['email'];
-                $password = $_POST['password'];
-                if(!empty ($email) && !empty($password) && !is_numeric($email)){
-                    $report = 'enter required entries';$count=1;return;
-                }
-                $sql = $con->query("SELECT * FROM users WHERE email='$email'");
-                if (mysqli_num_rows($sql) != 1) {$report= 'invalid login';$count=1;return;}
-                $row = mysqli_fetch_assoc($sql);
-                if ($row['password'] != $password) {$report = 'invalid login';$count=1;return;}
-                $_SESSION['user_id'] = $row['user_id'];
-                header('location:index.php');exit;
+                // $email = $_POST['email'];
+                // $password = $_POST['password'];
+                // if(!empty ($email) && !empty($password) && !is_numeric($email)){
+                //     $report = 'enter required entries';$count=1;return;
+                // }
+                // $sql = $con->query("SELECT * FROM users WHERE email='$email'");
+                // if (mysqli_num_rows($sql) != 1) {$report= 'invalid login';$count=1;return;}
+                // $row = mysqli_fetch_assoc($sql);
+                // if ($row['password'] != $password) {$report = 'invalid login';$count=1;return;}
+                // $_SESSION['user_id'] = $row['user_id'];
+                // header('location:index.php');exit;
             return;
         }
 
@@ -126,8 +107,6 @@ class Profile{
             $arm = $_POST['arm'];
             
             $sql = $con->query("INSERT INTO arm(arm) VALUES('$arm')");
-           
-    
             return;
         }
 
@@ -190,15 +169,7 @@ class Profile{
             $ca2 = $_POST['ca2'];
             $ca3 = $_POST['ca3'];
             $exam = $_POST['exam'];
-            
-            // $ar = $_POST['Ar'];
-            // $br = $_POST['br'];
-            // $cr = $_POST['cr'];
-            // $dr = $_POST['dr'];
-            // $er = $_POST['er'];
-            // $fr = $_POST['fr'];
-
-
+           
             $sql = $con->query("UPDATE resultsetup SET ca1='$ca1', ca2='$ca2', ca3='$ca3', exam='$exam' WHERE sn=1");
             return;
     
@@ -208,9 +179,10 @@ class Profile{
             $a = $_POST['A'];
             $b = $_POST['B'];
             $c = $_POST['C'];
-            $d = $_POST['C'];
+            $d = $_POST['D'];
             $e = $_POST['E'];
             $f = $_POST['F'];
+
             $ar = $_POST['Ar'];
             $br = $_POST['Br'];
             $cr = $_POST['Cr'];
@@ -218,7 +190,7 @@ class Profile{
             $er = $_POST['Er'];
             $fr = $_POST['Fr'];
 
-            $sql = $con->query("UPDATE resultsetup SET a='$a', b='$b', c='$c', d='$d',e='$f',f='$f',ar='$ar',br='$br',cr='$cr',dr='$dr',er='$er',fr='$fr'  WHERE sn=1");
+            $sql = $con->query("UPDATE resultsetup SET a='$a', b='$b', c='$c', d='$d',e='$e',f='$f',ar='$ar',br='$br',cr='$cr',dr='$dr',er='$er',fr='$fr'  WHERE sn=1");
             return;
 
         }
@@ -229,8 +201,7 @@ class Profile{
             $p2 = $_POST['p2'] ?? 0;
             $p3 = $_POST['p3'] ?? 0;
             $p4 = $_POST['p4'] ?? 0;
-            // $sql = $con->query("UPDATE permission SET p1='$p1', p2='$p2', p3='$p3', p4='$p4' WHERE staffid ='$staffid' ");
-            // mysqli_query($con,$sql);
+            
             $sql = ("UPDATE permission SET p1='$p1', p2='$p2', p3='$p3', p4='$p4' WHERE staffid='$staffid' ");
             mysqli_query($con,$sql);
 

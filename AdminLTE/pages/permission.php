@@ -141,7 +141,8 @@ include_once("myclass.php")
 
                                             </div>
                                             </td>
-                                  <td><button class="btn btn-xs btn success save change" type="submit" name="updatePermission" value="<?= $staffid ?>">
+                                  <td>
+                                    <button class="btn btn-xs btn success save change" type="submit" name="updatePermission" value="<?= $staffid ?>">
                                   <i class="fas fa-save"></i>Save</button>
 
                                   </td>

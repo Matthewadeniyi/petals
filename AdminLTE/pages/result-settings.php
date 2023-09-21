@@ -238,7 +238,7 @@
                 $i = 1;
                 $sql = $con->query("SELECT * FROM resultsetup");
                 while ($rows = $sql->fetch_assoc()) {
-                  echo '<input type="text" name="E" class="form-control form-control-sm" style="width: 60px" value="' . $rows['a'] . '">';
+                  echo '<input type="text" name="E" class="form-control form-control-sm" style="width: 60px" value="' . $rows['e'] . '">';
                 }
                 ?>
             </td>
