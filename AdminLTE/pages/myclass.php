@@ -250,7 +250,16 @@ class Profile{
             $sql = $con->query("INSERT into feecategory(fee)");
         }
         function updateSchoolInfo(){
-            global $con,
+            global $con;
+            $schoolname = $_POST['name'];
+            $email = $_POST['email'];
+            $website = $_POST['website'];
+            $phone = $_POST['phone'];
+            $motto = $_POST['motto'];
+            $address = $_POST['address'];
+            // $sql = $con->query("INSERT INTO schoolinfo(schoolname,email,website,phone,motto,address) VALUES('$schoolname', '$email', '$website', '$phone', '$motto', '$address')");
+            $sql = $con->query("UPDATE schoolinfo SET schoolname = '$schoolname', email='$email', website='$website', phone='$phone', motto = '$motto', address = '$address' WHERE sn =1");
+            return;
         }
 }
 

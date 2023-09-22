@@ -1,3 +1,8 @@
+<?php 
+include_once("myclass.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -77,36 +82,40 @@
    <section class="content">
     <div class="row">
      <div class="col-lg-6 col-12">
-      <div class="card card-secondary card-outline">
-       <div class="card-header">
-        <h3 class="card-title">
-         <i class="fas fa-plus-square"></i>
-         Create Session
-        </h3>
-       </div>
-       <div class="card-body">
-        <form action="" id="create_new_session">
-         <div class="form-group">
-         <label for="">Session</label>
-            <select id="session_id" name="session" class="form-control select2bs4">
-                <option selected="selected" disabled>Choose Session</option>
-                <?php 
-                    $i = -2;
-                    while($i <= 2){
-                        $e = $i++;
-                        $a = date('Y') + $e;
-                        $b = $a + 1;
-                        echo'<option>'.$a.'/'.$b.'</option>';                                           
-                        }
-                ?>
-            </select>
-         </div>
-         <div class="form-group mb-0 float-right">
-            <button type="submit" name="Term"  class="btn btn-secondary create_session_btn">Create Session</button>
-        </div>
-        </form>
-       </div>
-      </div>
+     <div class="card card-secondary card-outline">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <i class="fas fa-plus-square"></i>
+                                Create Session
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                                <form method='POST' id="create_new_session">
+                                    <input name="term" type="hidden">
+                                    <div class="form-group">
+                                        <label for="">Session</label>
+                                        <select id="session_id" name="session" class="form-control select2bs4">
+                                            <option selected="selected" disabled>Choose Session</option>
+                                            <?php 
+                                                $i = -2;
+                                               while($i <= 2){
+                                                    $e = $i++;
+                                                    $a = date('Y') + $e;
+                                                    $b = $a + 1;
+                                                    echo'<option>'.$a.'/'.$b.'</option>';                                           
+                                                    }
+                                            ?>
+                                            
+                                        </select>
+                                    </div>
+                                    <div class="form-group mb-0 float-right">
+                                        <button type="submit" name="Term"  class="btn btn-secondary create_session_btn">Create Session</button>
+                                    </div>
+                                </form>
+                            
+                        </div>
+                    </div>
+
 
       <div class="card card-secondary card-outline">
        <div class="card-header">
@@ -178,23 +187,23 @@
         </h3>
        </div>
        <div class="card-body">
-        <form action="" class="row">
+        <form action="" class="row" method="POST">
          <div class="col-md-12 form-group">
           <label for="">School Name</label>
-          <input type="text" name="name" class="form-control" value="SchoolPetal International School">
+          <input type="text" name="name" class="form-control">
          </div>
          <div class="col-md-6 form-group">
           <label for="">E-mail</label>
-          <input type="email" name="email" class="form-control" disabled value="ogbajigodwin@gmail.com">
+          <input type="email" name="email" class="form-control">
          </div>
          <div class="col-md-6 form-group">
           <label for="">Website</label>
-          <input type="url" name="website" class="form-control" placeholder="School website" value="">
+          <input type="url" name="website" class="form-control" placeholder="School website" >
          </div>
 
          <div class="col-md-6 form-group">
           <label for="">Phone Number</label>
-          <input type="text" name="phone" class="form-control" placeholder="Phone Number" value="08150905504">
+          <input type="text" name="phone" class="form-control" placeholder="Phone Number">
          </div>
 
          <div class="col-md-6 form-group">
@@ -214,7 +223,7 @@
 
 
          <div class="form-group col-md-12 mb-0 ">
-          <button type="button" class="btn btn-secondary float-right">Update School Info</button>
+          <button type="submit" class="btn btn-secondary float-right" name="updateSchoolInfo">Update School Info</button>
          </div>
         </form>
 
