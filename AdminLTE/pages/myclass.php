@@ -47,6 +47,9 @@ class Profile{
         else if(array_key_exists('FeeCategory', $_POST)){
             $this-> FeeCategory();
         }
+        else if(array_key_exists('updateSchoolInfo', $_POST)){
+            $this-> updateSchoolInfo();
+        }
     }
 
     function SignUp(){
@@ -245,6 +248,9 @@ class Profile{
             $feecategory = $_POST['feecategory'];
             $feedescription = $_POST['feedescription'];
             $sql = $con->query("INSERT into feecategory(fee)");
+        }
+        function updateSchoolInfo(){
+            global $con,
         }
 }
 

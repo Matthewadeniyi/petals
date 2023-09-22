@@ -48,7 +48,7 @@ include_once("myclass.php");
 
     <!-- Main content -->
     <section class="content">
-      <div class="row">
+    <div class="row">
        <!-- Row -->
             <div class="col-lg-6 col-12">
                     <div class="card card-secondary card-outline">
@@ -158,23 +158,23 @@ include_once("myclass.php");
                         </h3>
                     </div>
                     <div class="card-body">
-                        <form action="" class="row">
+                        <form action="" class="row"  method="POST">
                             <div class="col-md-12 form-group">
                                 <label for="">School Name</label>
-                                <input type="text" class="form-control" value="SchoolPetal International School">
+                                <input type="text" name="name" class="form-control" value="SchoolPetal International School">
                             </div>
                             <div class="col-md-6 form-group">
                                 <label for="">E-mail</label>
-                                <input type="email" class="form-control" disabled value="ogbajigodwin@gmail.com">
+                                <input type="email" name="email" class="form-control" disabled value="ogbajigodwin@gmail.com">
                             </div>
                             <div class="col-md-6 form-group">
                                 <label for="">Website</label>
-                                <input type="url" class="form-control" placeholder="School website" value="">
+                                <input type="url" name="website"class="form-control" placeholder="School website" value="">
                             </div>
 
                             <div class="col-md-6 form-group">
                                 <label for="">Phone Number</label>
-                                <input type="text" class="form-control" placeholder="Phone Number" value="08150905504">
+                                <input type="text" name="phone" class="form-control" placeholder="Phone Number" value="08150905504">
                             </div>
 
                             <div class="col-md-6 form-group">
@@ -184,17 +184,17 @@ include_once("myclass.php");
 
                             <div class="col-md-12 form-group">
                                 <label for="">Motto</label>
-                                <input type="text" class="form-control" value="">
+                                <input type="text" name="motto" class="form-control" value="">
                             </div>
 
                             <div class="col-md-12 form-group">
                                 <label for="">Address</label>
-                                <textarea name="" id="" class="form-control" cols="3"></textarea>
+                                <textarea name="address" id="" class="form-control" cols="3"></textarea>
                             </div>
 
 
                             <div class="form-group col-md-12 mb-0 ">
-                                <button type="button"  class="btn btn-secondary float-right">Update School Info</button>
+                                <button type="button"  name="" class="btn btn-secondary float-right">Update School Info</button>
                             </div>
                         </form>
 

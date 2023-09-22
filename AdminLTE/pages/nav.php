@@ -258,7 +258,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="general-setup.php" class="nav-link">
+                <a href="generalsetup.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>General Setup</p>
                 </a>
