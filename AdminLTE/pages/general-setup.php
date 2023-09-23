@@ -165,7 +165,8 @@ include_once("myclass.php");
                             </div>
                             <div class="col-md-6 form-group">
                                 <label for="">E-mail</label>
-                                <input type="email" name="email" class="form-control" disabled value="ogbajigodwin@gmail.com">
+                                <!-- <input type="email" name="email" class="form-control" disabled value="ogbajigodwin@gmail.com"> -->
+                              
                             </div>
                             <div class="col-md-6 form-group">
                                 <label for="">Website</label>

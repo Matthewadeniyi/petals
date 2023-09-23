@@ -190,20 +190,48 @@ include_once("myclass.php");
         <form action="" class="row" method="POST">
          <div class="col-md-12 form-group">
           <label for="">School Name</label>
-          <input type="text" name="name" class="form-control">
+          <!-- <input type="text" name="name" class="form-control"> -->
+          <?php
+                $i = 1;
+                $sql = $con->query("SELECT * FROM schoolinfo");
+                while ($rows = $sql->fetch_assoc()) {
+                echo '<input type="text" name="name" class="form-control form-control"  value="' . $rows['schoolname'] . '">';
+                }
+            ?>
          </div>
          <div class="col-md-6 form-group">
           <label for="">E-mail</label>
-          <input type="email" name="email" class="form-control">
+          <!-- <input type="email" name="email" class="form-control"> -->
+          <?php
+                $i = 1;
+                $sql = $con->query("SELECT * FROM schoolinfo");
+                while ($rows = $sql->fetch_assoc()) {
+                echo '<input type="text" name="email" class="form-control form-control"  value="' . $rows['email'] . '">';
+                }
+            ?>
          </div>
          <div class="col-md-6 form-group">
           <label for="">Website</label>
-          <input type="url" name="website" class="form-control" placeholder="School website" >
+          <!-- <input type="url" name="website" class="form-control" placeholder="School website" > -->
+          <?php
+                $i = 1;
+                $sql = $con->query("SELECT * FROM schoolinfo");
+                while ($rows = $sql->fetch_assoc()) {
+                echo '<input type="text" name="website" class="form-control form-control"  value="' . $rows['website'] . '">';
+                }
+            ?>
          </div>
 
          <div class="col-md-6 form-group">
           <label for="">Phone Number</label>
-          <input type="text" name="phone" class="form-control" placeholder="Phone Number">
+          <!-- <input type="text" name="phone" class="form-control" placeholder="Phone Number"> -->
+          <?php
+                $i = 1;
+                $sql = $con->query("SELECT * FROM schoolinfo");
+                while ($rows = $sql->fetch_assoc()) {
+                echo '<input type="text" name="phone" class="form-control form-control"  value="' . $rows['phone'] . '">';
+                }
+            ?>
          </div>
 
          <div class="col-md-6 form-group">
@@ -213,12 +241,26 @@ include_once("myclass.php");
 
          <div class="col-md-12 form-group">
           <label for="">Motto</label>
-          <input type="text" name="motto" class="form-control" value="">
+          <!-- <input type="text" name="motto" class="form-control" value=""> -->
+          <?php
+                $i = 1;
+                $sql = $con->query("SELECT * FROM schoolinfo");
+                while ($rows = $sql->fetch_assoc()) {
+                echo '<input type="text" name="motto" class="form-control form-control"  value="' . $rows['motto'] . '">';
+                }
+            ?>
          </div>
 
          <div class="col-md-12 form-group">
           <label for="">Address</label>
-          <textarea name="address" id="" class="form-control" cols="3"></textarea>
+          <!-- <textarea name="address" id="" class="form-control" cols="3"></textarea> --><?php
+                $i = 1;
+                $sql = $con->query("SELECT * FROM schoolinfo");
+                while ($rows = $sql->fetch_assoc()) {
+                    echo '<textarea name="address" class="form-control form-control">' . $rows['address'] . '</textarea>';
+
+                }
+            ?>
          </div>
 
 
