@@ -1,3 +1,6 @@
+<?php 
+  include_once("myclass.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,8 +67,15 @@
             <!-- small box -->
             <div class="small-box bg-secondary">
               <div class="inner">
-                <h3>21</h3>
-
+                <!-- <h3>21</h3> -->
+               <?php
+                 $i = 1;
+                 $sql = $con->query("SELECT * FROM students");
+                 $rowCount = mysqli_num_rows($sql);
+                 
+                 echo "<h3> $rowCount </h3>";
+                 
+                  ?>
                 <p>Students</p>
               </div>
             </div>
@@ -100,7 +110,15 @@
             <!-- small box -->
             <div class="small-box bg-secondary">
               <div class="inner">
-                <h3>32</h3>
+                <!-- <h3>32</h3> -->
+                <?php
+                 $i = 1;
+                 $sql = $con->query("SELECT * FROM teachers");
+                 $rowCount = mysqli_num_rows($sql);
+                 
+                 echo "<h3> $rowCount </h3>";
+                 
+                  ?>
 
                 <p>Subject Teachers</p>
               </div>
@@ -118,7 +136,17 @@
 
                     <div class="info-box-content">
                         <span class="info-box-text">Classes/Arms</span>
-                        <span class="info-box-number guardians">0</span>
+                        <!-- <span class="info-box-number guardians">0</span> -->
+                        <?php
+                          $i = 1;
+                          $sql = $con->query("SELECT * FROM class");
+                          $sql2 = $con->query("SELECT * FROM arm");
+                          $rowCount = mysqli_num_rows($sql);
+                          $rowCount2 = mysqli_num_rows($sql2);
+                          
+                          echo "<span class='info-box-number guardians'> $rowCount / $rowCount2 </span>";
+                 
+                       ?>
                     </div>
                 </div>
           </div>
@@ -128,7 +156,15 @@
 
                     <div class="info-box-content">
                         <span class="info-box-text">Subjects</span>
-                        <span class="info-box-number guardians">13</span>
+                        <!-- <span class="info-box-number guardians">13</span> -->
+                        <?php
+                          $i = 1;
+                          $sql = $con->query("SELECT * FROM subject");
+                          $rowCount = mysqli_num_rows($sql);
+                          
+                          echo "<span class='info-box-number guardians'> $rowCount </span>";
+                 
+                       ?>
                     </div>
                 </div>
           </div>
@@ -138,7 +174,14 @@
 
                     <div class="info-box-content">
                         <span class="info-box-text">Guardians</span>
-                        <span class="info-box-number guardians">14</span>
+                        <!-- <span class="info-box-number guardians">14</span> -->
+                        <?php
+                          $sql = $con->query("SELECT * FROM guardian");
+                          $rowCount = mysqli_num_rows($sql);
+                          
+                          echo "<span class='info-box-number guardians'> $rowCount </span>";
+                 
+                       ?>
                     </div>
                 </div>
           </div>
@@ -148,7 +191,15 @@
 
                     <div class="info-box-content">
                         <span class="info-box-text">Staffs</span>
-                        <span class="info-box-number guardians">11</span>
+                        <!-- <span class="info-box-number guardians">11</span> -->
+                        <?php
+                          $i = 1;
+                          $sql = $con->query("SELECT * FROM staff");
+                          $rowCount = mysqli_num_rows($sql);
+                          
+                          echo "<span class='info-box-number guardians'> $rowCount </span>";
+                 
+                       ?>
                     </div>
                 </div>
           </div>

@@ -218,6 +218,13 @@ class Profile{
             $rows = mysqli_fetch_assoc($sql);
             return $rows[$pin];
         }
+        function mat($table){
+            global$con;
+            $sql = $con->query("SELECT * FROM $table");
+            $rowCount = mysqli_num_rows($sql);
+            return  $rowCount;
+
+        }
 
         function sqLx1($table,$col,$val){
             global $con;
