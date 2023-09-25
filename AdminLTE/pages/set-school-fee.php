@@ -159,12 +159,30 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Name</th>
+                                            <th>Class</th>
+                                            <th>Fee</th>
                                             <th>Amount</th>
                                             <th>Discount</th>
                                             <th>Total</th>
-                                            <th></th>
+                                            
                                         </tr>
                                     </thead>
+
+                                    <tbody id="record-table">
+                                      <?php $i =1;
+                                      $sql =$con->query("SELECT * FROM setfee ORDER BY sn DESC");
+                                      while ($rows = mysqli_fetch_assoc($sql)){ ?>
+                                        <tr>
+                                          <td><?= $i++ ?></td>
+                                          <td><?=$pro->SqlX('students', 'sn', $rows['sn'], 'firstname' )?></td>
+                                          <td><?= $pro->SqlX('class','sn', $rows['class'], 'category')?></td>
+                                          <td><?=$pro->SqlX('createfee', 'sn', $rows['fee'], 'feecategory' )?></td>
+                                          <td><?= number_format($rows['amount'])?></td>
+                                          <td><?= number_format($rows['discount'])?></td>
+                                          <td><?= number_format($rows['total'])?></td>
+                                        </tr>
+                                      <?php } ?>
+                                    </tbody>
                                    
                                 </table>
                             </div>
