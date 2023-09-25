@@ -1,3 +1,6 @@
+<?php 
+include("myclass.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,7 +60,7 @@
                                </h3>
                            </div>
                            <div class="card-body pb-0">
-                               <form action="" id="createClassCategory">
+                               <form action="" id="createClassCategory" method="POST">
                                    <div class="form-group">
                                        <label>Fee Category</label>
                                        <input type="text" name="category" class="form-control" placeholder="School Fee">
@@ -67,7 +70,7 @@
                                        <textarea name="description" class="form-control" col="2" placeholder="Describe fee category"></textarea>
                                    </div>
                                    <div class="form-group float-right">
-                                       <button class="btn btn-secondary createClassCategory">Add Category</button>
+                                       <button class="btn btn-secondary createClassCategory" type="submit" name="FeeCategory">Add Category</button>
                                    </div>
                                </form>
                            </div>
@@ -92,17 +95,21 @@
                             <table id="example1" class="table mb-0 table-bordered table-hover table-striped">
                                 <thead>
                                     <tr>
+                                      <th>S/N</th>
                                         <th>Fee</th>
                                         <th>Description</th>
-                                        <th></th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody id="arm_list_body">
-                                    <tr>
-                                        <td>Tuition Fee</td>
-                                        <td>Main Terminal School fees</td>
-                                        <td></td>
-                                    </tr>
+                                <?php   $i=1; $sql = $con->query("SELECT * FROM createfee");
+                                          while ($rows = $sql->fetch_assoc()) { ?>
+                                          <tr>
+                                            <td><?=$i++ ?></td>
+                                           <td><?=$rows['feecategory'] ?></td>
+                                           <td><?=$rows['feedescription'] ?></td>
+                                          </tr>
+                                          <?php } ?>
                                 </tbody>
                             </table>
                         </div>

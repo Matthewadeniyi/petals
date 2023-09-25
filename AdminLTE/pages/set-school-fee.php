@@ -62,59 +62,60 @@
             <div class="row">
               <div class="col-md-4">
                 <div class="form-group">
-                  <label for="">Select class</label>
-                  <select class="form-control select2bs4" style="width: 100%;" placeholder="Select Guardian">
-                  <option disabled selected value="Select Guardian">Select Class</option>
-                      <?php   $i=1; $sql = $con->query("SELECT * FROM class");
-                      while ($rows = $sql->fetch_assoc()) {
-                        echo '<option value="'.$rows['sn'].'">'.$rows['category'].'</option>';
-                      }
-                      ?>
-                  </select>
+                  <form action="" method="post">
+                    
+                    <label for="">Select class</label>
+                    <select class="form-control select2bs4" name="class" style="width: 100%;" placeholder="Select Guardian">
+                    <option disabled selected value="Select Guardian">Select Class</option>
+                        <?php   $i=1; $sql = $con->query("SELECT * FROM class");
+                        while ($rows = $sql->fetch_assoc()) {
+                          echo '<option value="'.$rows['sn'].'">'.$rows['category'].'</option>';
+                        }
+                        ?>
+                    </select>
+                  </div>
+                  <!-- /.form-group -->
+                  <!-- /.form-group -->
                 </div>
-                <!-- /.form-group -->
-                <!-- /.form-group -->
-              </div>
-              <div class="col-md-4">
-                <div class="form-group">
-                  <label for="">Select Fee Category</label>
-                  <select class="form-control select2bs4" style="width: 100%;">
-                  <option disabled selected value="Prospective Class">Prospective Class</option>
-                    <option></option>
-                    <option></option>
-                    <option ></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                  </select>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="">Select Fee Category</label>
+                    <select class="form-control select2bs4" name="fee" style="width: 100%;">
+                    <option disabled selected value="Prospective Class">Select Category</option>
+                    <?php   $i=1; $sql = $con->query("SELECT * FROM createfee");
+                        while ($rows = $sql->fetch_assoc()) {
+                          echo '<option value="'.$rows['sn'].'">'.$rows['feecategory'].'</option>';
+                        }
+                        ?>
+                    </select>
+                  </div>
+                  <!-- /.form-group -->
+                  <!-- /.form-group -->
                 </div>
-                <!-- /.form-group -->
-                <!-- /.form-group -->
-              </div>
-              <div class="col-md-4">
-                <div class="form-group">
-                  <label for="">Input Amount</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Fee Amount" required>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="">Input Amount</label>
+                    <input type="text" class="form-control" name="amount" id="exampleInputEmail1" placeholder="Fee Amount" required>
+                  </div>
+                  <!-- /.form-group -->
+                  <!-- /.form-group -->
                 </div>
-                <!-- /.form-group -->
-                <!-- /.form-group -->
+                <!-- /.col -->
+                
+                <div class="col-12">
+  
+                    <div class="form-group d-flex justify-content-end">
+     
+                       <button class="btn btn-secondary" type="submit" name="SetFee" >Set Fee</button>
+                   </div>
+                </div>
+                 
+                  <!-- /.form-group -->
+                </div>
+                
+                <!-- /.col -->
               </div>
-              <!-- /.col -->
-              
-              <div class="col-12">
-
-                  <div class="form-group d-flex justify-content-end">
-   
-                     <button class="btn btn-secondary">Set Fee</button>
-                 </div>
-              </div>
-               
-                <!-- /.form-group -->
-              </div>
-              
-              <!-- /.col -->
-            </div>
+                  </form>
             
             
             <!-- /.row -->
@@ -131,18 +132,18 @@
                       Student Fee
                     </h3>
                 </div>
-                <div class="col-md-1 col-12 d-flex justify-content-end">
+                <div class=" d-flex justify-content-end">
                      <select id="session_id" class="form-control select2bs4">
                         <option selected="selected" disabled>Class</option>
                          <option></option>
                         <option></option>
                       </select>
                 </div>
-                <div class="col-md-1 col-12 d-flex justify-content-end">
+                <div class=" ml-4 d-flex justify-content-end">
                      <select id="session_id" class="form-control select2bs4">
-                        <option selected="selected" disabled>Fee/option>
+                        <option selected="selected" disabled>Fee/option
                          <option></option>
-                        <option>4</option>
+                        <option></option>
                       </select>
                 </div>
             </div>

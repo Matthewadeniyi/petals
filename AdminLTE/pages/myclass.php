@@ -44,8 +44,11 @@ class Profile{
         elseif(array_key_exists('updatePermission', $_POST)){
             $this-> updatePermission();
         }
-        else if(array_key_exists('FeeCategory', $_POST)){
-            $this-> FeeCategory();
+        else if(array_key_exists('CreateFee', $_POST)){
+            $this-> CreateFee();
+        }
+        elseif(array_key_exists('SetFee', $_POST)){
+            $this-> SetFee();
         }
         else if(array_key_exists('updateSchoolInfo', $_POST)){
             $this-> updateSchoolInfo();
@@ -218,14 +221,7 @@ class Profile{
             $rows = mysqli_fetch_assoc($sql);
             return $rows[$pin];
         }
-        function mat($table){
-            global$con;
-            $sql = $con->query("SELECT * FROM $table");
-            $rowCount = mysqli_num_rows($sql);
-            return  $rowCount;
-
-        }
-
+      
         function sqLx1($table,$col,$val){
             global $con;
             $sql = $con->query("SELECT * FROM $table WHERE $col='$val' ");
@@ -246,15 +242,24 @@ class Profile{
             $i =0;
             while($i < 3){
                 $i++;
-                $sql = $con->query("INSERT into term(session,term) VALUES ('$session','$i')");
+                $sql = $con->query("INSERT  INTO term(session,term) VALUES ('$session','$i')");
             }
             return;
         }
-        function FeeCategory(){
+        function CreateFee(){
             global $con;
-            $feecategory = $_POST['feecategory'];
-            $feedescription = $_POST['feedescription'];
-            $sql = $con->query("INSERT into feecategory(fee)");
+            $feecategory = $_POST['category'];
+            $feedescription = $_POST['description'];
+            $sql = $con->query("INSERT  INTO feecategory(feecategory,feedescription) VALUES ('$feecategory', '$feedescription')");
+            return;
+        }
+        function SetFee(){
+            global $con;
+            $class = $_POST['class'];
+            $feecategory = $_POST['fee'];
+            $amount = $_POST['amount'];
+            $sql = $con->query("INSERT INTO setfee(class,fee,amount) VALUES ('$class','$feecategory', '$amount') ");
+            return ;
         }
         function updateSchoolInfo(){
             global $con;
