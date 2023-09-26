@@ -1,5 +1,7 @@
 <?php 
 include_once("myclass.php");
+// $sql = $con->query("UPDATE term  SET status = 1 WHERE sn = 10");
+
 
 ?>
 
@@ -133,44 +135,58 @@ include_once("myclass.php");
                                         </tr>
                                     </thead>
                                     <tbody id="session_body">
+
+                                    <?php 
+                                        $i = -1;
+
+                                        while($i < 2){
+                                            $e = $i++;
+                                            $a = date('Y') + $e;
+                                            $b= $a + 1;
+                                            $s = $a . '/' . $b;
+                                        }
+                                    ?>
                                         <tr>
-                                            <td>
-                                           
-                                            </td>
-                                            <td>
-                                                <table >
+                                            <td><?=$s ?></td>
+                                            <th colspan="2">
+                                            <table >
                                                     <thead class="table">
-                                                        <th>T</th>
+                                                        <th>Term</th>
                                                         <th>Closes</th>
                                                         <th>Next-Term</th>
                                                         <th></th>
                                                     </thead>
                                                     <tbody>
+                                                        <?php $sql = $con->query("SELECT * FROM term WHERE session='$s' "); 
+                                                        while($row = mysqli_fetch_assoc($sql)){   
+                                                        ?>
+                                                        
+                                                        
                                                         <tr>
-                                                            <td>First-Term</td>
-                                                            <td>null</td>
-                                                            <td>null</td>
-                                                            <td>null</td>
+                                                            <td>Term<?= $row['term']?></td>
+                                                            <td><?= date('Y') ?></td>
+                                                            <td><?= date('Y') ?></td>
+                                                            <form  method="post">
+                                                                <td>
+                                                                    <button class="btn btn-xs btn-primary editTermInfo">Edit</button>
+                                                                    <button class="btn-sm btn-danger" type="submit" value="<?=$row['sn'] ?>" name="Activate">Activate</button>
+                                                                </td>
+                                                            </form>
                                                         </tr>
-                                                        <tr>
-                                                            <td>Second-Term</td>
-                                                            <td>null</td>
-                                                            <td>null</td>
-                                                            <td>null</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Third-Term</td>
-                                                            <td>null</td>
-                                                            <td>null</td>
-                                                            <td>null</td>
-                                                        </tr>
+                                                        <?php } ?>
+                                                        
                                                     </tbody>
                                                 </table>
+                                            </th>
+
+                                            <td>
+                                                
                                             </td>
                                         </tr>
                                        
                                        
                                     </tbody>
+                                    
                                 </table>
                             </div>
 

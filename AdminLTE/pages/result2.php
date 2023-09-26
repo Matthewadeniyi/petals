@@ -118,17 +118,17 @@
                                             <th>Remark</th>
                                     </tr>
                                     <tr>
-                                            <th>Mathematics</th>
-                                            <th>20</th>
-                                            <th>10</th>
-                                            <th>15</th>
-                                            <th>60</th>
-                                            <th>80</th>
-                                            <th>70</th>
-                                            <th>100</th>
-                                            <th>50.5</th>
-                                            <th>C</th>
-                                            <th>Pass</th>
+                                            <th class="text-center">Mathematics</th>
+                                            <th class="text-center">20</th>
+                                            <th class="text-center">10</th>
+                                            <th class="text-center">15</th>
+                                            <th class="text-center">60</th>
+                                            <th class="text-center">80</th>
+                                            <th class="text-center">70</th>
+                                            <th class="text-center">100</th>
+                                            <th class="text-center">50.5</th>
+                                            <th class="text-center">C</th>
+                                            <th class="text-center">Pass</th>
                                     </tr>
                                 </tbody>
                                 <tfoot>

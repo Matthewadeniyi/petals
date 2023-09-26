@@ -55,6 +55,8 @@ class Profile{
         }
         elseif(array_key_exists('UploadResult', $_POST)){
             $this->UploadResult();
+        }elseif(array_key_exists('Activate', $_POST)){
+            $this->Activate();
         }
     }
 
@@ -247,6 +249,13 @@ class Profile{
                 $i++;
                 $sql = $con->query("INSERT  INTO term(session,term) VALUES ('$session','$i')");
             }
+            return;
+        }
+        function Activate($sn){
+            global $con;
+            $sn= $_POST['sn'];
+            $sql = $con->query("UPDATE term  SET status = 0 WHERE");
+            $sql = $con->query("UPDATE term  SET status = 1 WHERE sn = '$sn'");
             return;
         }
         function CreateFee(){
