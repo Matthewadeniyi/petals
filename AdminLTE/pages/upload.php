@@ -64,11 +64,11 @@
                     <div class="col-md-12">
                         <div class="card card-secondary card-outline">
                             <div class="card-body">
-                                <form id="startResult">
+                                <form id="startResult" method="POST">
                                     <div class="form-group">
                                         <label>Select Class</label>
-                                        <select name="program" id="program" class="form-control select2bs4">
-                                        <option disabled selected value="Prospective Class">Select Class</option>
+                                        <select name="class" id="program" class="form-control select2bs4">
+                                        <option disabled selected >Select Class</option>
                                     <?php   $i=1; $sql = $con->query("SELECT * FROM class");
                                         while ($rows = $sql->fetch_assoc()) {
                                         echo '<option value="'.$rows['sn'].'">'.$rows['category'].'</option>';
@@ -78,8 +78,8 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Select Subject</label>
-                                        <select name="program" id="program" class="form-control select2bs4">
-                                        <option disabled selected value="Prospective Class">Select Subject</option>
+                                        <select name="subject" id="program" class="form-control select2bs4">
+                                        <option disabled selected>Select Subject</option>
                                             <?php   $i=1; $sql = $con->query("SELECT * FROM subject");
                                                 while ($rows = $sql->fetch_assoc()) {
                                                 echo '<option value="'.$rows['sn'].'">'.$rows['subject'].'</option>';
@@ -88,7 +88,7 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <button class="btn btn-secondary float-right startResult" name="UploadResult">Start Result</button>
+                                        <button class="btn btn-secondary float-right startResult" type="submit" >Start Result</button>
                                     </div>
                                     <input type="hidden" id="setup">
                                 </form>
@@ -103,32 +103,63 @@
                     <div class="card-header">
                         <h3 class="card-title text-bold">
                             <i class="fa fa-list-alt" aria-hidden="true"></i>
-                            <span class="t_text">Broad sheet</span>
+                            <span class="t_text">Upload Result</span>
                         </h3>
                     </div>
                     <div class="card-body p-1">
                         <div class="table-responsive">
-                            <table id="example1" class="table mb-0 table-bordered table-hover table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>S/N</th>
-                                        <th>Student Name</th>
-                                        <th class="ca1">CA1</th>
-                                        <th class="ca2">CA2</th>
-                                        <th class="ca3">CA3</th>
-                                        <th class="exam">Exam</th>
-                                        <th>Total</th>
-                                    
-                                    </tr>
-                                </thead>
-                                <tbody id="result_body">
-                                    <tr>
-                                        
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                            <form action="" method="post">
 
+                                    
+                                    <table id="example1" class="table mb-0 table-bordered table-hover table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>S/N</th>
+                                                <th>Student Name</th>
+                                                <th class="ca1">CA1</th>
+                                                <th class="ca2">CA2</th>
+                                                <th class="exam">Exam</th>
+                                                
+                                            
+                                            </tr>
+                                        </thead>
+                                        <tbody id="result_body">
+                                            <?php 
+                                                if (isset($_POST['class'])){
+                                                    $class = $_POST['class'];
+                                                    $subject = $_POST['subject'];
+
+                                                    $i = 1;
+                                                    $sql = $con->query("SELECT * FROM students WHERE class = '$class' ");
+
+                                                    while($rows = mysqli_fetch_assoc($sql)){
+                                                        ?>
+                                                            <tr>
+                                                                <th scope="row"><?= $i++ ?></th>
+                                                                <td><a href="#" ><?=$rows['firstname']?> <?= $rows['lastname'] ?> <input type="hidden" name= "studentid[]" value="<?=$rows['sn'] ?>" required></a></td>
+                                                            
+
+                                                                <td><input type = "number" name="ca1[]" min="0" max="20" class="form-control" required></td>
+                                                                <td><input type = "number" name="ca2[]" min="0" max="20" class="form-control" required></td>
+                                                                <td><input type = "number" name="exam[]" min="0" max="80" class="form-control" required></td>
+                                                            </tr>
+                                                <?php }
+                                                } ?>
+                                            
+                                        
+                                        </tbody>
+                                        <tr>
+
+                                        
+                                        </tr>
+                                    </table>
+                                    <input type="text" name="class" value="<?= @$class ?>" class="form-control">
+                                    <input type="text" name="subject" value="<?= @$subject ?>" class="form-control">
+                                    <div class="form-group">
+                                                    <button class="btn btn-secondary float-right startResult" type="submit" style="width:100%;" name="UploadResult">Upload Result</button>
+                                                </div>
+                                </div>
+                            </form>
                         <div id="page_links">
 
                         </div>

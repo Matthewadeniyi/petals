@@ -251,11 +251,11 @@ class Profile{
             }
             return;
         }
-        function Activate($sn){
+        function Activate(){
             global $con;
-            $sn= $_POST['sn'];
-            $sql = $con->query("UPDATE term  SET status = 0 WHERE");
-            $sql = $con->query("UPDATE term  SET status = 1 WHERE sn = '$sn'");
+            $sn= $_POST['Activate'];
+            $sql = $con->query("UPDATE term  SET status = 0");
+            $sql = $con->query("UPDATE term  SET status = 1 WHERE sn = '$sn' ");
             return;
         }
         function CreateFee(){
@@ -286,34 +286,36 @@ class Profile{
             return;
         }
 
-        // function UploadResult(){
-        //     global $con;
-        //     $studentid = $_POST['studentid'];
-        //     $class = $_POST['class'];
-        //     $subject = $_POST['subject'];
-        //     $ca1 = $_POST['ca1'];
-        //     $ca2 = $_POST['ca2'];
-        //     $exam = $_POST['exam'];
+        function UploadResult(){
+            global $con;
+            $class = $_POST['class'];
+            $studentid = $_POST['studentid'];
+            
+            $subject = $_POST['subject'];
+            $ca1 = $_POST['ca1'];
+            $ca2 = $_POST['ca2'];
+            $exam = $_POST['exam'];
             
 
-        //     $i = 0;
-        //      while($i < count($studentid)) {
-        //         $e = $i++;
+            $i = 0;
+             while($i < count($studentid)) {
+                $e = $i++;
 
-        //         $student = $studentid[$e];
-        //         $c1 = $ca1[$e];
-        //         $c2 = $ca2[$e];
-        //         $exa = $exam[$e]; 
-        //         $total = (int)$c1 + (int)$c2+ (int)$exa;
-        //         if(empty($c1) || empty($c2) || empty($exa)){
-        //             $report = "Input all fields";$count = 1; return;
-        //         }
-        //         $sql = "INSERT INTO upload_result(studentid, class, subject,ca1,ca2,exam,total) VALUES('$studentid', '$class', '$subject', '$ca1', '$ca2', '$exam', '$total')"
-        //         mysqli_query($con,$sql);
-        //      }
-        // }
-        // $report = "Results added succesfully";
-        // return;
+                $student = $studentid[$e];
+                $c1 = $ca1[$e];
+                $c2 = $ca2[$e];
+                $exa = $exam[$e]; 
+                $total = (int)$c1 + (int)$c2+ (int)$exa;
+                if(empty($c1) || empty($c2) || empty($exa)){
+                    $report = "Input all fields";$count = 1; return;
+                }
+                $sql = "INSERT INTO result(studentid, class, subject,ca1,ca2,exam,total) VALUES('$student', '$class', '$subject', '$c1', '$c2', '$exa', '$total')";
+                mysqli_query($con,$sql);
+             }
+             $report = "Results added succesfully";
+             return;
+        }
+       
 }
 
 

@@ -130,33 +130,33 @@ include_once("myclass.php");
                                 <table id="example1" class="table mb-0 table-bordered" >
                                     <thead>
                                         <tr>
-                                            <th>Session</th>
-                                            <th colspan="2">Session Info</th>
+                                            <th colspan="2">Session</th>
+                                            <th >Session Info</th>
                                         </tr>
                                     </thead>
                                     <tbody id="session_body">
 
                                     <?php 
-                                        $i = -1;
+                                        $i = -2;
 
                                         while($i < 2){
                                             $e = $i++;
                                             $a = date('Y') + $e;
                                             $b= $a + 1;
                                             $s = $a . '/' . $b;
-                                        }
+                                        
                                     ?>
                                         <tr>
                                             <td><?=$s ?></td>
                                             <th colspan="2">
                                             <table >
-                                                    <thead class="table">
+                                                   <tr>
                                                         <th>Term</th>
                                                         <th>Closes</th>
                                                         <th>Next-Term</th>
                                                         <th></th>
-                                                    </thead>
-                                                    <tbody>
+                                                    </tr>
+                                                   
                                                         <?php $sql = $con->query("SELECT * FROM term WHERE session='$s' "); 
                                                         while($row = mysqli_fetch_assoc($sql)){   
                                                         ?>
@@ -184,7 +184,7 @@ include_once("myclass.php");
                                             </td>
                                         </tr>
                                        
-                                       
+                                        <?php } ?>
                                     </tbody>
                                     
                                 </table>
