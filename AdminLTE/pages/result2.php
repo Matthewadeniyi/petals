@@ -1,13 +1,9 @@
-<?php 
-    require_once("myclass.php")
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Upload Result</title>
+  <title>Broad-Sheet</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -43,12 +39,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Student Result</h1>
+            <h1 class="m-0">Broad Sheet</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Result</li>
+              <li class="breadcrumb-item active">Broad Sheet</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -57,38 +53,22 @@
     <!-- /.content-header -->
 
     <!-- Main content -->
+
     <section class="content">
         <div class="row">
             <div class="col-md-12 col-12">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-4">
                         <div class="card card-secondary card-outline">
                             <div class="card-body">
-                                <form id="startResult">
+                                <form id="loadSheet">
                                     <div class="form-group">
-                                        <label>Select Class</label>
+                                        <label>Select Programme</label>
                                         <select name="program" id="program" class="form-control select2bs4">
-                                        <option disabled selected value="Prospective Class">Select Class</option>
-                                    <?php   $i=1; $sql = $con->query("SELECT * FROM class");
-                                        while ($rows = $sql->fetch_assoc()) {
-                                        echo '<option value="'.$rows['sn'].'">'.$rows['category'].'</option>';
-                                        }
-                                        ?>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label>Select Subject</label>
-                                        <select name="program" id="program" class="form-control select2bs4">
-                                        <option disabled selected value="Prospective Class">Select Subject</option>
-                                            <?php   $i=1; $sql = $con->query("SELECT * FROM subject");
-                                                while ($rows = $sql->fetch_assoc()) {
-                                                echo '<option value="'.$rows['sn'].'">'.$rows['subject'].'</option>';
-                                                }
-                                            ?>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <button class="btn btn-secondary float-right startResult" name="UploadResult">Start Result</button>
+                                        <button class="btn btn-secondary float-right loadSheet">View Sheet</button>
                                     </div>
                                     <input type="hidden" id="setup">
                                 </form>
@@ -111,21 +91,68 @@
                             <table id="example1" class="table mb-0 table-bordered table-hover table-striped">
                                 <thead>
                                     <tr>
-                                        <th>S/N</th>
-                                        <th>Student Name</th>
-                                        <th class="ca1">CA1</th>
-                                        <th class="ca2">CA2</th>
-                                        <th class="ca3">CA3</th>
-                                        <th class="exam">Exam</th>
-                                        <th>Total</th>
-                                    
+                                    <h3 class="text-center">El-SHADDAI INTERNATIONAL GROUP OF SCHOOLS,ADA</h3>
+                                    <h5 class="text-center">TERMLY CONTINUOUS ASSESMENT DOSSIER</h5>
+                                    <h6 class="text-center">ThirdTerm,2021/2022 ACADEMIC SESSION</h6>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3" class="text-center">NAME:</th>
+                                        <th colspan="3" class="text-center"> Registration NO: </th>
+                                        <th colspan="2" class="text-center">RESULT ID:</th>
+                                        <th colspan="2" class="text-center">CLASS:</th>
+                                        <th colspan="2" class="text-center">GENDER:MALE</th>
                                     </tr>
                                 </thead>
                                 <tbody id="result_body">
                                     <tr>
-                                        
+                                            <th>Subjects</th>
+                                            <th>CA1</th>
+                                            <th>CA2</th>
+                                            <th>CA3</th>
+                                            <th>Exam</th>
+                                            <th>Term Total</th>
+                                            <th>Last Term</th>
+                                            <th>Total</th>
+                                            <th>Class Average</th>
+                                            <th>Grade</th>
+                                            <th>Remark</th>
+                                    </tr>
+                                    <tr>
+                                            <th>Mathematics</th>
+                                            <th>20</th>
+                                            <th>10</th>
+                                            <th>15</th>
+                                            <th>60</th>
+                                            <th>80</th>
+                                            <th>70</th>
+                                            <th>100</th>
+                                            <th>50.5</th>
+                                            <th>C</th>
+                                            <th>Pass</th>
                                     </tr>
                                 </tbody>
+                                <tfoot>
+                                <tr>
+                                            <th colspan="3">Subjects:</th>
+                                            <th colspan="3">Total Score:</th>
+                                            <th colspan="2">Average:</th>
+                                            <th colspan="2">Class Average:</th>
+                                            <th colspan="2">No in Class:</th>
+                                            
+                                </tr>
+                                <tr>
+                                    
+                                            <td colspan="12">
+                                                <div style="display:flex; font-weight:bold;">
+                                                    <p>Vacation Date: <br>Teacher's Comment</p>
+                                                    <p style="margin-left:700px;">Resumption Date: <br> Principal's Comment</p>
+                                                </div>
+                                            </td>
+                                           
+                                            
+                                            
+                                </tr>
+                                </tfoot>
                             </table>
                         </div>
 
@@ -140,6 +167,7 @@
         </div>
     </section>
 
+  
     
 
 

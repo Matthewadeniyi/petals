@@ -53,6 +53,9 @@ class Profile{
         else if(array_key_exists('updateSchoolInfo', $_POST)){
             $this-> updateSchoolInfo();
         }
+        elseif(array_key_exists('UploadResult', $_POST)){
+            $this->UploadResult();
+        }
     }
 
     function SignUp(){
@@ -273,7 +276,55 @@ class Profile{
             $sql = $con->query("UPDATE schoolinfo SET schoolname = '$schoolname', email='$email', website='$website', phone='$phone', motto = '$motto', address = '$address' WHERE sn =1");
             return;
         }
+
+        // function UploadResult(){
+        //     global $con;
+        //     $studentid = $_POST['studentid'];
+        //     $class = $_POST['class'];
+        //     $subject = $_POST['subject'];
+        //     $ca1 = $_POST['ca1'];
+        //     $ca2 = $_POST['ca2'];
+        //     $exam = $_POST['exam'];
+            
+
+        //     $i = 0;
+        //      while($i < count($studentid)) {
+        //         $e = $i++;
+
+        //         $student = $studentid[$e];
+        //         $c1 = $ca1[$e];
+        //         $c2 = $ca2[$e];
+        //         $exa = $exam[$e]; 
+        //         $total = (int)$c1 + (int)$c2+ (int)$exa;
+        //         if(empty($c1) || empty($c2) || empty($exa)){
+        //             $report = "Input all fields";$count = 1; return;
+        //         }
+        //         $sql = "INSERT INTO upload_result(studentid, class, subject,ca1,ca2,exam,total) VALUES('$studentid', '$class', '$subject', '$ca1', '$ca2', '$exam', '$total')"
+        //         mysqli_query($con,$sql);
+        //      }
+        // }
+        // $report = "Results added succesfully";
+        // return;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 $pro = new Profile();
 ?>

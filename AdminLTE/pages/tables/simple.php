@@ -1146,24 +1146,36 @@
                 </div>
               </div>
               <!-- /.card-header -->
-              <div class="card-body table-responsive p-0">
+              <div class="card-body table-responsive p-0 table-bordered">
                 <table class="table table-hover text-nowrap">
                   <thead>
-                    <tr>
-                      <th>ID</th>
-                      <th>User</th>
-                      <th>Date</th>
-                      <th>Status</th>
-                      <th>Reason</th>
-                    </tr>
+                    <tr colspan="12"></tr>
+                    <h3 class="text-center">El-SHADDAI INTERNATIONAL GROUP OF SCHOOLS,ADA</h3>
+                    <h5 class="text-center">TERMLY CONTINUOUS ASSESMENT DOSSIER</h5>
+                    <h6 class="text-center">ThirdTerm,2021/2022 ACADEMIC SESSION</h6>
+                    
                   </thead>
                   <tbody>
                     <tr>
-                      <td>183</td>
-                      <td>John Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-success">Approved</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                      <th>Name</th>
+                      <th>Registration NO:</th>
+                      <th>Result ID:53</th>
+                      <th>Class:JSS2</th>
+                      <th>Gender:Male</th>
+                    </tr>
+                
+                    <tr>
+                      <td>Subjects</td>
+                      <td>CA1</td>
+                      <td>CA2</td>
+                      <td>CA3</td>
+                      <td>Exam</td>
+                      <td>Term Total</td>
+                      <td>Last Term</td>
+                      <td>Total</td>
+                      <td>Class Average</td>
+                      <td>Grade</td>
+                      <td>Remark</td>
                     </tr>
                     <tr>
                       <td>219</td>

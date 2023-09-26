@@ -174,7 +174,7 @@
                                       while ($rows = mysqli_fetch_assoc($sql)){ ?>
                                         <tr>
                                           <td><?= $i++ ?></td>
-                                          <td><?=$pro->SqlX('students', 'sn', $rows['sn'], 'firstname' )?></td>
+                                          <td><?=$pro->SqlX('students', 'sn', $rows['sn'], 'lastname' )?>  <?=$pro->SqlX('students', 'sn', $rows['sn'], 'firstname' )?></td>
                                           <td><?= $pro->SqlX('class','sn', $rows['class'], 'category')?></td>
                                           <td><?=$pro->SqlX('createfee', 'sn', $rows['fee'], 'feecategory' )?></td>
                                           <td><?= number_format($rows['amount'])?></td>
