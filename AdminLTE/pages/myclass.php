@@ -60,19 +60,19 @@ class Profile{
         }
     }
 
-    function SignUp(){
-         global $con;
+        function SignUp(){
+            global $con;
 
-        $firstname = $_POST['firstname'];
-        $lastname = $_POST['lastname'];
-        $email =$_POST['email'];
-        $password =$_POST['password'];
-        $user_id = rand();
-        $sql = $con->query("INSERT INTO users (firstname, lastname, email, password,user_id ) VALUES('$firstname','$lastname','$email', '$password','$user_id')");
-       header('location:login.php');
-        return;
-    
-    }
+            $firstname = $_POST['firstname'];
+            $lastname = $_POST['lastname'];
+            $email =$_POST['email'];
+            $password =$_POST['password'];
+            $user_id = rand();
+            $sql = $con->query("INSERT INTO users (firstname, lastname, email, password,user_id ) VALUES('$firstname','$lastname','$email', '$password','$user_id')");
+        header('location:login.php');
+            return;
+        
+        }
  
         function Login(){
             global $con,$report,$count;
@@ -321,7 +321,29 @@ class Profile{
             $sid - $_POST['sid'];
             $term = $_POST['term'];
             $session = $_POST['session'];
-            $sql = "INSERT INTO resultsum where sid = '$sid' AND term='$term'AND session "
+            $sql = "INSERT INTO resultsum where studentid = '$sid' AND term='$term' AND session ";
+         }
+
+         function checkResultProfile($sid){
+            global $con;
+            $term = $this.sqLx('term', 'status', 1, 'term');
+            $session = $this.sqLx('term', 'status', 1, 'session');
+            $sql = $con->query("SELECT * FROM resultsum WHERE studentid = '$sid' AND term = '$term' AND session='$session' ");
+
+            if(mysqli_num_rows($sql) == 0){
+                $con->query("INSERT INTO resultsum (studentid,term,session) VALUES ('$studentid', '$term', '$session')");
+            };
+            return;
+         }
+         function checkResultSum(){
+            global $con;
+            $sql = $con->query("SELECT * FROM students");
+            while($row = mysqli_fetch_assoc($sql)){
+                $sid = $row['sn'];
+                $this->checkResultProfile($sid);
+
+            }
+            return;
          }
        
 }

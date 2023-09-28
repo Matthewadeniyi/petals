@@ -375,7 +375,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="studentprofile.php" class="nav-link">
             <i class="fa fa-user" aria-hidden="true"></i>
               <p>
                 My profile

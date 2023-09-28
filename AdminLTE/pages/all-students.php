@@ -103,7 +103,7 @@
                             <td><?=$rows['regnumber'] ?></td>
 
                             <td>
-                                  <a href="#">
+                                  <a href="studentprofile.php">
                                       Go-to-profile 
                                       <i class="fas fa-arrow-circle-right"></i>
                                   </a>
