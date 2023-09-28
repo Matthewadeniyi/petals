@@ -1,5 +1,6 @@
 <?php
   include_once("myclass.php");
+  $pro->checkResultSum();
 ?>
 
 <!DOCTYPE html>
@@ -77,21 +78,23 @@
                       <th>Session</th>
                       <th>Term</th>
                       <th>Class</th>
+                      <th>Date</th>
                       <th></th>
                     </tr>
                   
                   <tbody>
                     <tr>
                     <?php 
-                      $i=1; $sql = $con->query("SELECT * FROM  result");
+                      $i=1; $sql = $con->query("SELECT * FROM  resultsum");
                       while($rows = mysqli_fetch_assoc($sql)){ ?>
                         <tr>
                           <td><?=$i++ ?></td>
                           
-                          <td><?= $pro->sqLx('students', 'sn', $rows['studentid'] , 'firstname') ?> <?= $pro->sqLx('students', 'sn', $rows['studentid'] , 'lastname') ?></td>
-                          <td><?= $pro->sqLx('term', 'sn', 1, 'session') ?></td>
-                          <td><?= $pro->sqLx('term', 'sn', 1, 'term') ?></td>
-                          <td><?= $pro->sqLx('class', 'sn', $rows['class'], 'category') ?></td>
+                          <td><?= $pro->sqLx('students', 'sn', $rows['sid'] , 'firstname') ?> <?= $pro->sqLx('students', 'sn', $rows['sid'] , 'lastname') ?></td>
+                          <td><?= $pro->sqLx('term', 'status', 1, 'session') ?></td>
+                          <td><?=$rows['term']?></td>
+                          <td><?= $pro->sqLx('students', 'sn', $rows['sid'] , 'class') ?></td>
+                          <td><?=$rows['created_at']?></td>
                             <td><a class="btn btn-xs btn-info" href="/control/view-result/284"><i class="fas fa-eye"></i> View</a></td>
                         </tr>
                       <?php } ?>

@@ -321,17 +321,17 @@ class Profile{
             $sid - $_POST['sid'];
             $term = $_POST['term'];
             $session = $_POST['session'];
-            $sql = "INSERT INTO resultsum where studentid = '$sid' AND term='$term' AND session ";
+            $sql = "INSERT INTO resultsum where sid = '$sid' AND term='$term' AND session ='$session' ";
          }
 
          function checkResultProfile($sid){
             global $con;
-            $term = $this.sqLx('term', 'status', 1, 'term');
-            $session = $this.sqLx('term', 'status', 1, 'session');
-            $sql = $con->query("SELECT * FROM resultsum WHERE studentid = '$sid' AND term = '$term' AND session='$session' ");
+            $term = $this->sqLx('term', 'status', 1, 'term');
+            $session = $this->sqLx('term', 'status', 1, 'session');
+            $sql = $con->query("SELECT * FROM resultsum WHERE sid = '$sid' AND term = '$term' AND session='$session' ");
 
             if(mysqli_num_rows($sql) == 0){
-                $con->query("INSERT INTO resultsum (studentid,term,session) VALUES ('$studentid', '$term', '$session')");
+                $con->query("INSERT INTO resultsum (sid,term,session) VALUES ('$sid', '$term', '$session')");
             };
             return;
          }
