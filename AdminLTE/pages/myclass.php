@@ -76,17 +76,18 @@ class Profile{
  
         function Login(){
             global $con,$report,$count;
-                // $email = $_POST['email'];
-                // $password = $_POST['password'];
+                $email = $_POST['email'];
+                $password = $_POST['password'];
                 // if(!empty ($email) && !empty($password) && !is_numeric($email)){
-                //     $report = 'enter required entries';$count=1;return;
+                //     // $report = 'enter required entries';$count=1;return;
+                //     echo "enter required entries" ;
                 // }
-                // $sql = $con->query("SELECT * FROM users WHERE email='$email'");
-                // if (mysqli_num_rows($sql) != 1) {$report= 'invalid login';$count=1;return;}
-                // $row = mysqli_fetch_assoc($sql);
-                // if ($row['password'] != $password) {$report = 'invalid login';$count=1;return;}
-                // $_SESSION['user_id'] = $row['user_id'];
-                // header('location:index.php');exit;
+                $sql = $con->query("SELECT * FROM users WHERE email='$email'");
+                if (mysqli_num_rows($sql) != 1) {$report= 'invalid login';$count=1;return;}
+                $row = mysqli_fetch_assoc($sql);
+                if ($row['password'] != $password) {$report = 'invalid login';$count=1;return;}
+                $_SESSION['user_id'] = $row['user_id'];
+                header('location:index.php');exit;
             return;
         }
 
@@ -315,6 +316,13 @@ class Profile{
              $report = "Results added succesfully";
              return;
         }
+         function resultSum(){
+            global $con;
+            $sid - $_POST['sid'];
+            $term = $_POST['term'];
+            $session = $_POST['session'];
+            $sql = "INSERT INTO resultsum where sid = '$sid' AND term='$term'AND session "
+         }
        
 }
 
