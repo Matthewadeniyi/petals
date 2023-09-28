@@ -96,7 +96,7 @@ require_once("myclass.php");
         <div class="row">
             <div class="col-md-3">
                 <?php 
-                $sn = $_POST['sn'];
+                $sn = $_GET['sn'];
                 $sql = $con->query("SELECT * FROM  students WHERE sn = '$sn'");
                  $rows = mysqli_fetch_assoc($sql);
                  ?>
@@ -108,8 +108,8 @@ require_once("myclass.php");
                                 <i class="fas fa-upload "></i>
                             </div>
                         </div>
-                        <h3 class="profile-username text-center"><?= $rows['surname'] . ' '. $rows['firstname']?></h3>
-                        <p class="text-muted text-center"><?= $pro->SqLx('class', 'sn', $rows['category'], 'category')?><sup><?= $pro->SqLx('arm', 'sn', $rows['class_arm'], 'arm')?></sup> | <?=$rows['gender']?></p>
+                        <h3 class="profile-username text-center"><?= $rows['firstname'] . ' '. $rows['lastname']?></h3>
+                        <p class="text-muted text-center"><?= $pro->SqLx('class', 'sn', $rows['category'], 'category')?><sup><?= $pro->SqLx('arm', 'sn', $rows['arm'], 'arm')?></sup> | <?=$rows['gender']?></p>
                         <button class="btn btn-success btn-block"><b> <i class="fa fa-user-check"></i> Activate</b></button>
                         <a class="btn btn-primary btn-block" href="studentprofile.php?sn=<?=$rows['sn']?>" data-toggle="tab"><b> <i class="fas fa-edit"></i> Edit Profile</b></a>
                     </div>
@@ -164,9 +164,9 @@ require_once("myclass.php");
                                             <img class="profile-user-img img-fluid img-circle" src="https://portal.schoolpetal.com/assets/img/user4-128x128.jpg" alt="User profile picture">
                                         </div>
 
-                                        <h3 class="profile-username text-center"><?= $pro->SqLx('parents', 'sn', $rows['guardian'], 'name')?></h3>
+                                        <h3 class="profile-username text-center"><?= $pro->SqLx('guardian', 'sn', $rows['guardian'], 'name')?></h3>
 
-                                        <p class="text-muted text-center"><?= $pro->SqLx('parents', 'sn', $rows['guardian'], 'address')?></p>
+                                        <p class="text-muted text-center"><?= $pro->SqLx('guardian', 'sn', $rows['guardian'], 'address')?></p>
 
                                         <div class="text-center">
                                             <a href="/control/gurdian/165">Go-to-profile <i class="fas fa-arrow-circle-right"></i></a>
