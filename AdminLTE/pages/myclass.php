@@ -252,6 +252,21 @@ class Profile{
             }
             return;
         }
+
+        function RealTerm($t){
+            $term = " ";
+            if($t == 1){
+                $term = "First Term";
+            }elseif($t == 2){
+                $term = "Second Term";
+            }elseif($t == 3){
+                $term = "Third Term";
+            }else{
+                $term = "Invalid Term";
+            }
+            return $term;
+        }
+
         function Activate(){
             global $con;
             $sn= $_POST['Activate'];
