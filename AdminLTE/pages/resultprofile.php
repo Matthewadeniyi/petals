@@ -93,7 +93,7 @@
                           <td><?= $pro->sqLx('students', 'sn', $rows['sid'] , 'firstname') ?> <?= $pro->sqLx('students', 'sn', $rows['sid'] , 'lastname') ?></td>
                           <td><?= $pro->sqLx('term', 'status', 1, 'session') ?></td>
                           <td><?= $pro->RealTerm($rows['term']) ?></td>
-                          <td><?= $pro->sqLx('students', 'sn', $rows['sid'] , 'class') ?></td>
+                          <td><?= $pro->sqLx('class', 'sn', $rows['class'] , 'category') ?></td>
                           <td><?=$rows['created_at']?></td>
                             <td><a class="btn btn-xs btn-info" href="/control/view-result/284"><i class="fas fa-eye"></i> View</a></td>
                         </tr>

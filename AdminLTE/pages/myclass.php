@@ -313,7 +313,7 @@ class Profile{
             $exam = $_POST['exam'];
             
 
-            $i = 0;
+             $i = 0;
              while($i < count($studentid)) {
                 $e = $i++;
 
@@ -328,8 +328,8 @@ class Profile{
                 $sql = "INSERT INTO result(studentid, class, subject,ca1,ca2,exam,total) VALUES('$student', '$class', '$subject', '$c1', '$c2', '$exa', '$total')";
                 mysqli_query($con,$sql);
              }
-             $report = "Results added succesfully";
-             return;
+                $report = "Results added succesfully";
+                return;
         }
          function resultSum(){
             global $con;
@@ -339,14 +339,14 @@ class Profile{
             $sql = "INSERT INTO resultsum where sid = '$sid' AND term='$term' AND session ='$session' ";
          }
 
-         function checkResultProfile($sid){
+         function checkResultProfile($sid,$class){
             global $con;
             $term = $this->sqLx('term', 'status', 1, 'term');
             $session = $this->sqLx('term', 'status', 1, 'session');
             $sql = $con->query("SELECT * FROM resultsum WHERE sid = '$sid' AND term = '$term' AND session='$session' ");
 
             if(mysqli_num_rows($sql) == 0){
-                $con->query("INSERT INTO resultsum (sid,term,session) VALUES ('$sid', '$term', '$session')");
+                $con->query("INSERT INTO resultsum (sid,class,term,session) VALUES ('$sid', '$class','$term', '$session')");
             };
             return;
          }
@@ -355,8 +355,8 @@ class Profile{
             $sql = $con->query("SELECT * FROM students");
             while($row = mysqli_fetch_assoc($sql)){
                 $sid = $row['sn'];
-                $this->checkResultProfile($sid);
-
+                $class = $row['class'];
+                $this->checkResultProfile($sid,$class);
             }
             return;
          }
