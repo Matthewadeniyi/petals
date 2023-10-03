@@ -55,7 +55,8 @@ class Profile{
         }
         elseif(array_key_exists('UploadResult', $_POST)){
             $this->UploadResult();
-        }elseif(array_key_exists('Activate', $_POST)){
+        }
+        elseif(array_key_exists('Activate', $_POST)){
             $this->Activate();
         }
     }
@@ -307,6 +308,7 @@ class Profile{
             $class = $_POST['class'];
             $studentid = $_POST['studentid'];
             $subject = $_POST['subject'];
+            $term = $_POST['term'];
             $ca1 = $_POST['ca1'];
             $ca2 = $_POST['ca2'];
             $exam = $_POST['exam'];
@@ -324,20 +326,19 @@ class Profile{
                 if(empty($c1) || empty($c2) || empty($exa)){
                     $report = "Input all fields";$count = 1; return;
                 }
-                $sql = "INSERT INTO result(studentid, class, subject,ca1,ca2,exam,total) VALUES('$student', '$class', '$subject', '$c1', '$c2', '$exa', '$total')";
+                $sql = "INSERT INTO result(studentid, class,term, subject,ca1,ca2,exam,total) VALUES('$student', '$class', '$term', '$subject', '$c1', '$c2', '$exa', '$total')";
                 mysqli_query($con,$sql);
              }
                 $report = "Results added succesfully";
                 return;
         }
          function resultSum(){
-
+            
             global $con;
-            $sid - $_POST['sid'];
+            $sid = $_POST['sid'];
             $term = $_POST['term'];
             $session = $_POST['session'];
-            // $sql = "INSERT INTO resultsum where sid = '$sid' AND term='$term' AND session ='$session' ";
-            $sql = "INSERT INTO resultsm(studentid, class, subject,ca1,ca2,exam,total) VALUES('$student', '$class', '$subject', '$c1', '$c2', '$exa', '$total')";
+            $sql = "INSERT INTO resultsum where sid = '$sid' AND term='$term' AND session ='$session' ";
 
          }
 

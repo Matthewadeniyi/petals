@@ -88,6 +88,17 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
+                                        <label>Select Term</label>
+                                        <select name="term" id="program" class="form-control select2bs4">
+                                        <option disabled selected >Select Term</option>
+                                    <?php   $i=1; $sql = $con->query("SELECT * FROM term WHERE status=1");
+                                        while ($rows = $sql->fetch_assoc()) {
+                                        echo '<option value="'.$rows['sn'].'">'.$rows['term'].'</option>';
+                                        }
+                                        ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
                                         <button class="btn btn-secondary float-right startResult" type="submit" >Start Result</button>
                                     </div>
                                     <input type="hidden" id="setup">
@@ -160,6 +171,45 @@
                                                 </div>
                                 </div>
                             </form>
+                            <table id="example1" class="table table-bordered table-striped">
+                  
+                                <tr>
+                                    <th>S/N</th>
+                                    <th>Student Name</th>
+                                    <th>Subject</th>
+                                    <th>Class</th>
+                                    <th>ca1</th>
+                                    <th>ca2</th>
+                                    <th>Exam</th>
+                                    <th>total</th>
+                                    <th>Grade</th>
+                                    <th>Remarks</th>
+                                    
+                                </tr>
+                
+                                <tbody>
+                                <tr>
+                                <?php 
+                                    $i=1; $sql = $con->query("SELECT * FROM  result");
+                                    while($rows = mysqli_fetch_assoc($sql)){ ?>
+                                    <tr>
+                                        <td><?=$i++ ?></td>
+                                        
+                                        <td><?= $pro->sqLx('students', 'sn', $rows['sn'] , 'firstname') ?> <?= $pro->sqLx('students', 'sn', $rows['sn'] , 'lastname') ?></td>
+                                        <td><?= $pro->sqLx('subject', 'sn', $rows['sn'], 'subject') ?></td>
+                                        <td><?= $pro->sqLx('class', 'sn', $rows['sn'], 'category' )?></td>
+
+                                        <td><?=$rows['ca1'] ?></td>
+                                        <td><?=$rows['ca2'] ?></td>
+                                        <td><?=$rows['exam'] ?></td>
+                                       <td><?=$rows['total']?></td>
+                                       <td></td>
+                                       <td></td>
+                                    </tr>
+                                    <?php } ?>
+                                </tr>
+                                </tbody>
+                            </table>
                         <div id="page_links">
 
                         </div>
