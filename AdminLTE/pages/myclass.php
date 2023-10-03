@@ -331,12 +331,13 @@ class Profile{
                 return;
         }
          function resultSum(){
-            
+
             global $con;
             $sid - $_POST['sid'];
             $term = $_POST['term'];
             $session = $_POST['session'];
-            $sql = "INSERT INTO resultsum where sid = '$sid' AND term='$term' AND session ='$session' ";
+            // $sql = "INSERT INTO resultsum where sid = '$sid' AND term='$term' AND session ='$session' ";
+            $sql = "INSERT INTO resultsm(studentid, class, subject,ca1,ca2,exam,total) VALUES('$student', '$class', '$subject', '$c1', '$c2', '$exa', '$total')";
 
          }
 
