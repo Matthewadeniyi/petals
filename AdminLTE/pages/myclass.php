@@ -69,7 +69,7 @@ class Profile{
             $password =$_POST['password'];
             $user_id = rand();
             $sql = $con->query("INSERT INTO users (firstname, lastname, email, password,user_id ) VALUES('$firstname','$lastname','$email', '$password','$user_id')");
-        header('location:login.php');
+            header('location:login.php');
             return;
         
         }
@@ -306,7 +306,6 @@ class Profile{
             global $con;
             $class = $_POST['class'];
             $studentid = $_POST['studentid'];
-            
             $subject = $_POST['subject'];
             $ca1 = $_POST['ca1'];
             $ca2 = $_POST['ca2'];
@@ -332,11 +331,13 @@ class Profile{
                 return;
         }
          function resultSum(){
+            
             global $con;
             $sid - $_POST['sid'];
             $term = $_POST['term'];
             $session = $_POST['session'];
             $sql = "INSERT INTO resultsum where sid = '$sid' AND term='$term' AND session ='$session' ";
+
          }
 
          function checkResultProfile($sid,$class){
