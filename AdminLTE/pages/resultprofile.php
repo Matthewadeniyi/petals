@@ -95,7 +95,7 @@
                           <td><?= $pro->RealTerm($rows['term']) ?></td>
                           <td><?= $pro->sqLx('class', 'sn', $rows['class'] , 'category') ?></td>
                           <td><?=$rows['created_at']?></td>
-                            <td><a class="btn btn-xs btn-info" href="result2.php?sn=<?= $rows['sn'] ?>"><i class="fas fa-eye"></i> View</a></td>
+                            <td><a class="btn btn-xs btn-info" name="broadsheet" href="result2.php?sn=<?= $rows['sn'] ?>"><i class="fas fa-eye"></i> View</a></td>
                         </tr>
                       <?php } ?>
                     </tr>

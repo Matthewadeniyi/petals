@@ -59,6 +59,9 @@ class Profile{
         elseif(array_key_exists('Activate', $_POST)){
             $this->Activate();
         }
+        elseif(array_key_exists('broadsheet', $_POST)){
+            $this->broadsheet();
+        }
     }
 
         function SignUp(){
@@ -380,6 +383,12 @@ class Profile{
                 $this->checkResultProfile($sid,$class);
             }
             return;
+         }
+
+         function broadsheet(){
+            global $con;
+            $sql = $con->query("SELECT * result WHERE resultid ='$resultid'");
+            return $resultid;
          }
        
 }

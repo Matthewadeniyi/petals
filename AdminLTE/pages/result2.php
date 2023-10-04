@@ -1,6 +1,6 @@
 <?php
   include("myclass.php");
-  $resultid = '';
+  $resultid = '8';
 ?>
 
 <!DOCTYPE html>
@@ -93,6 +93,14 @@
                     </div>
                     <div class="card-body p-1">
                         <div class="table-responsive">
+                        <?php 
+                                  $sn = $_GET['sn'];
+                                  // $resultid = $_GET['resultid'];
+                                  // $subject = $_GET['subject'];
+
+                                  $sql = $con->query("SELECT * FROM students WHERE sn='$sn' ");
+                                  $rows= mysqli_fetch_assoc($sql);
+                                ?>
                             <table id="example1" class="table mb-0 table-bordered table-hover table-striped">
                                 <thead>
                                     <tr>
@@ -101,14 +109,14 @@
                                     <h6 class="text-center">ThirdTerm,2021/2022 ACADEMIC SESSION</h6>
                                     </tr>
                                     <tr>
-                                        <th colspan="3" class="text-center">NAME:</th>
-                                        <th colspan="3" class="text-center"> Registration NO: </th>
+                                        <th colspan="3" class="text-center">NAME:<?=$rows['firstname'] ?> <?=$rows['lastname'] ?></th>
+                                        <th colspan="3" class="text-center"> Registration NO : <?=$rows['regnumber'] ?> </th>
                                         <th colspan="2" class="text-center">RESULT ID:</th>
-                                        <th colspan="2" class="text-center">CLASS:</th>
-                                        <th colspan="2" class="text-center">GENDER:</th>
+                                        <th colspan="2" class="text-center">CLASS: <?=$pro->sqLx('class', 'sn',$rows['class'],'category') ?></th>
+                                        <th colspan="2" class="text-center">GENDER: <?=$rows['gender'] ?></th>
                                     </tr>
                                     <tr>
-                                            <th>Subjects</th>
+                                            <th>Subjects </th>
                                             <th>CA1</th>
                                             <th>CA2</th>
                                             <th>CA3</th>
@@ -121,29 +129,8 @@
                                             <th>Remark</th>
                                     </tr>
                                 </thead>
-                                <?php 
-                                if(isset($_POST['resultid'])){
-                                  $resultid = $_POST['resultid'];
-                                  $i = 1;
-                                $sql = $con->query("SELECT * FROM result WHERE resultid ='$resultid' ");
-                                   
-
-                                    while($rows= mysqli_fetch_assoc($sql)){ ?>
-                                <tbody id="result_body">
-                                    <!-- <tr>
-                                        <th>#</th>
-                                        <th>Student</th>
-                                        <th class="ca1">CA1</th>
-                                        <th class="ca2">CA2</th>
-                                        <th class="ca3">CA3</th>
-                                        <th class="exam">Exam</th>
-                                        <th >Total</th>
-                                    </tr>
-                                   -->
-                                    <tr>
-                                      <td><?= $rows['subject']?></td>
-                                    </tr>
-                           <?php } }?>
+                               
+                              
                                 
                                 <tfoot>
                                 <tr>
