@@ -62,7 +62,7 @@
     <section class="content">
         <div class="row">
             <div class="col-md-12 col-12">
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-md-4">
                         <div class="card card-secondary card-outline">
                             <div class="card-body">
@@ -80,7 +80,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
 
 
@@ -105,7 +105,7 @@
                                         <th colspan="3" class="text-center"> Registration NO: </th>
                                         <th colspan="2" class="text-center">RESULT ID:</th>
                                         <th colspan="2" class="text-center">CLASS:</th>
-                                        <th colspan="2" class="text-center">GENDER:MALE</th>
+                                        <th colspan="2" class="text-center">GENDER:</th>
                                     </tr>
                                     <tr>
                                             <th>Subjects</th>
@@ -124,12 +124,13 @@
                                 <?php 
                                 if(isset($_POST['resultid'])){
                                   $resultid = $_POST['resultid'];
+                                  $i = 1;
                                 $sql = $con->query("SELECT * FROM result WHERE resultid ='$resultid' ");
                                    
 
                                     while($rows= mysqli_fetch_assoc($sql)){ ?>
                                 <tbody id="result_body">
-                                    <tr>
+                                    <!-- <tr>
                                         <th>#</th>
                                         <th>Student</th>
                                         <th class="ca1">CA1</th>
@@ -138,7 +139,7 @@
                                         <th class="exam">Exam</th>
                                         <th >Total</th>
                                     </tr>
-                                  
+                                   -->
                                     <tr>
                                       <td><?= $rows['subject']?></td>
                                     </tr>
