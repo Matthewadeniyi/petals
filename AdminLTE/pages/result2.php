@@ -1,3 +1,8 @@
+<?php
+  include("myclass.php");
+  $resultid = '';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -102,8 +107,6 @@
                                         <th colspan="2" class="text-center">CLASS:</th>
                                         <th colspan="2" class="text-center">GENDER:MALE</th>
                                     </tr>
-                                </thead>
-                                <tbody id="result_body">
                                     <tr>
                                             <th>Subjects</th>
                                             <th>CA1</th>
@@ -117,20 +120,30 @@
                                             <th>Grade</th>
                                             <th>Remark</th>
                                     </tr>
+                                </thead>
+                                <?php 
+                                if(isset($_POST['resultid'])){
+                                  $resultid = $_POST['resultid'];
+                                $sql = $con->query("SELECT * FROM result WHERE resultid ='$resultid' ");
+                                   
+
+                                    while($rows= mysqli_fetch_assoc($sql)){ ?>
+                                <tbody id="result_body">
                                     <tr>
-                                            <th class="text-center">Mathematics</th>
-                                            <th class="text-center">20</th>
-                                            <th class="text-center">10</th>
-                                            <th class="text-center">15</th>
-                                            <th class="text-center">60</th>
-                                            <th class="text-center">80</th>
-                                            <th class="text-center">70</th>
-                                            <th class="text-center">100</th>
-                                            <th class="text-center">50.5</th>
-                                            <th class="text-center">C</th>
-                                            <th class="text-center">Pass</th>
+                                        <th>#</th>
+                                        <th>Student</th>
+                                        <th class="ca1">CA1</th>
+                                        <th class="ca2">CA2</th>
+                                        <th class="ca3">CA3</th>
+                                        <th class="exam">Exam</th>
+                                        <th >Total</th>
                                     </tr>
-                                </tbody>
+                                  
+                                    <tr>
+                                      <td><?= $rows['subject']?></td>
+                                    </tr>
+                           <?php } }?>
+                                
                                 <tfoot>
                                 <tr>
                                             <th colspan="3">Subjects:</th>

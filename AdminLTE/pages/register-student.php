@@ -160,8 +160,7 @@ include("myclass.php");
                     <div class="form-group">
                       <label for="">Gender<span class="text-danger">*</span></label>
                       <select class="form-control select2bs4" name="gender" style="width: 100%;">
-                      <option disabled selected value="Select Gender</option>
-                        <option></option>">Select Gender</option>
+                      <option disabled selected value="Select Gender</option></option>">Select Gender</option>
                         <option>Male</option>
                         <option>female</option>
                       </select>

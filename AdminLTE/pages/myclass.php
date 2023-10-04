@@ -349,11 +349,15 @@ class Profile{
          function resultSum(){
             
             global $con;
-            $sid = $_POST['sid'];
-            $term = $_POST['term'];
-            $session = $_POST['session'];
-            $sql = "INSERT INTO resultsum where sid = '$sid' AND term='$term' AND session ='$session' ";
+            $sql = $con->query("SELECT * FROM $table WHERE $col = '$val' ");
+                $sql = "SELECT * FROM resultsum WHERE sid = '$sid' AND term = '$term' AND session = '$session' ";
 
+                if(mysqli_num_rows($sql) ==0){
+                    $sql = "INSERT INTO resultsum (sid, term, session) VALUES ('$sid','$term','$session')";
+                    mysqli_query($con, $sql);
+                    $result = $rows['sn'];
+                    return $result;
+                }
          }
 
          function checkResultProfile($sid,$class){
