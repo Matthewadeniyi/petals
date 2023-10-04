@@ -178,6 +178,7 @@
                                     <th>Student Name</th>
                                     <th>Subject</th>
                                     <th>Class</th>
+                                    <th>Term</th>
                                     <th>ca1</th>
                                     <th>ca2</th>
                                     <th>Exam</th>
@@ -197,8 +198,8 @@
                                         
                                         <td><?= $pro->sqLx('students', 'sn', $rows['sn'] , 'firstname') ?> <?= $pro->sqLx('students', 'sn', $rows['sn'] , 'lastname') ?></td>
                                         <td><?= $pro->sqLx('subject', 'sn', $rows['sn'], 'subject') ?></td>
-                                        <td><?= $pro->sqLx('class', 'sn', $rows['sn'], 'category' )?></td>
-
+                                        <td><?= $pro->sqLx('class', 'sn',$rows['class'], 'category' )?></td>
+                                        <td><?= $pro->RealTerm($rows['term']) ?></td>
                                         <td><?=$rows['ca1'] ?></td>
                                         <td><?=$rows['ca2'] ?></td>
                                         <td><?=$rows['exam'] ?></td>

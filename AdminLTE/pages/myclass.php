@@ -187,6 +187,7 @@ class Profile{
             return;
     
         }
+
         function updategrade(){
             global $con;
             $a = $_POST['A'];
@@ -303,12 +304,23 @@ class Profile{
             return;
         }
 
+        function resultId($sid){
+            global $con;
+            $term = $this->sqLx('term','status',1, 'term');
+            $session = $this->sqLx('term','status',1,'session');
+
+            $sql = $con->query("SELECT * FROM resultsum WHERE term = '$term' AND  session= '$session'  AND sid='$sid' ");
+            $rows = mysqli_fetch_assoc($sql);
+            $resultid = $rows['resultId'];
+            return $resultid;
+        }
+
         function UploadResult(){
             global $con;
             $class = $_POST['class'];
             $studentid = $_POST['studentid'];
             $subject = $_POST['subject'];
-            $term = $_POST['term'];
+            $term = $this->sqLx('term', 'status', 1, 'term');
             $ca1 = $_POST['ca1'];
             $ca2 = $_POST['ca2'];
             $exam = $_POST['exam'];
@@ -319,6 +331,8 @@ class Profile{
                 $e = $i++;
 
                 $student = $studentid[$e];
+                $resultid = $this->resultId($student);
+                @$result = $resultId[$e];
                 $c1 = $ca1[$e];
                 $c2 = $ca2[$e];
                 $exa = $exam[$e]; 
@@ -326,7 +340,7 @@ class Profile{
                 if(empty($c1) || empty($c2) || empty($exa)){
                     $report = "Input all fields";$count = 1; return;
                 }
-                $sql = "INSERT INTO result(studentid, class,term, subject,ca1,ca2,exam,total) VALUES('$student', '$class', '$term', '$subject', '$c1', '$c2', '$exa', '$total')";
+                $sql = "INSERT INTO result(studentid, resultid, class,term, subject,ca1,ca2,exam,total) VALUES('$student', '$resultid', '$class', '$term', '$subject', '$c1', '$c2', '$exa', '$total')";
                 mysqli_query($con,$sql);
              }
                 $report = "Results added succesfully";
