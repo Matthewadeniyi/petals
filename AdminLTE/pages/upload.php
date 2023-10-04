@@ -87,17 +87,7 @@
                                             ?>
                                         </select>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Select Term</label>
-                                        <select name="term" id="program" class="form-control select2bs4">
-                                        <option disabled selected >Select Term</option>
-                                    <?php   $i=1; $sql = $con->query("SELECT * FROM term WHERE status=1");
-                                        while ($rows = $sql->fetch_assoc()) {
-                                        echo '<option value="'.$rows['sn'].'">'.$rows['term'].'</option>';
-                                        }
-                                        ?>
-                                        </select>
-                                    </div>
+                                    
                                     <div class="form-group">
                                         <button class="btn btn-secondary float-right startResult" type="submit" >Start Result</button>
                                     </div>
@@ -149,10 +139,10 @@
                                                                 <th scope="row"><?= $i++ ?></th>
                                                                 <td><a href="#" ><?=$rows['firstname']?> <?= $rows['lastname'] ?> <input type="hidden" name= "studentid[]" value="<?=$rows['sn'] ?>" required></a></td>
                                                             
-
+                                                                <input type = "number" name="resultid[]" value = "<?= $pro->resultId($rows['sn']) ?>" class="form-control">
                                                                 <td><input type = "number" name="ca1[]" min="0" max="20" class="form-control" required></td>
                                                                 <td><input type = "number" name="ca2[]" min="0" max="20" class="form-control" required></td>
-                                                                <td><input type = "number" name="exam[]" min="0" max="80" class="form-control" required></td>
+                                                                <td><input type = "number" name="exam[]" min="0" max="60" class="form-control" required></td>
                                                             </tr>
                                                 <?php }
                                                 } ?>

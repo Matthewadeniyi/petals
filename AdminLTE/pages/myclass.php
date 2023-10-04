@@ -311,7 +311,7 @@ class Profile{
 
             $sql = $con->query("SELECT * FROM resultsum WHERE term = '$term' AND  session= '$session'  AND sid='$sid' ");
             $rows = mysqli_fetch_assoc($sql);
-            $resultid = $rows['resultId'];
+            $resultid = $rows['sn'];
             return $resultid;
         }
 
