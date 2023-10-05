@@ -390,13 +390,14 @@ class Profile{
             $sql = $con->query("SELECT * result WHERE resultid ='$resultid'");
             return $resultid;
          }
-         function getResultId(){
-            
+
+         
+         function getResultId($sid){
             global $con;
-                $sql = "SELECT * FROM result WHERE resultid = '$resultid' ";
-                    mysqli_query($con, $sql);                 
-                    return;
-                }
+            $sql = $con->query("SELECT * FROM resultsum WHERE sid = '$sid' ");
+            $rows = mysqli_fetch_assoc($sql);
+            return $rows['sn'];
+         }
        
          
 

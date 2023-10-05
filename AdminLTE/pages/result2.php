@@ -95,11 +95,9 @@
                         <div class="table-responsive">
                         <?php 
                                   $sn = $_GET['sn'];
-                                  // ($resultid = $_GET['resultid']);
-                                  // $subject = $_GET['subject'];
-
                                   $sql = $con->query("SELECT * FROM students WHERE sn='$sn' ");
                                   $rows= mysqli_fetch_assoc($sql);
+                                  $rid = $pro->getResultId($rows['sn']);
                                 ?>
                             <table id="example1" class="table mb-0 table-bordered table-hover table-striped">
                                 <thead>
@@ -111,10 +109,7 @@
                                     <tr>
                                         <th colspan="3" class="text-center">NAME:<?=$rows['firstname'] ?> <?=$rows['lastname'] ?></th>
                                         <th colspan="3" class="text-center"> Registration NO: <?=$rows['regnumber'] ?> </th>
-                                        <th colspan="2" class="text-center">RESULT ID:
-          
-                                          <?= $pro->sqLx1('resultsum','sn','sid') ?>
-                                        </th>
+                                        <th colspan="2" class="text-center">RESULT ID: <?=$rid ?></th>
                                         <th colspan="2" class="text-center">CLASS: <?=$pro->sqLx('class', 'sn',$rows['class'],'category') ?></th>
                                         <th colspan="2" class="text-center">GENDER: <?=$rows['gender'] ?></th>
                                     </tr>
@@ -122,18 +117,30 @@
                                             <th>Subjects </th>
                                             <th>CA1</th>
                                             <th>CA2</th>
-                                            <th>CA3</th>
                                             <th>Exam</th>
                                             <th>Term Total</th>
                                             <th>Last Term</th>
                                             <th>Total</th>
                                             <th>Class Average</th>
                                             <th>Grade</th>
-                                            <th>Remark</th>
+                                            <th colspan="2">Remark</th>
                                     </tr>
                                 </thead>
                                
-                              
+                              <tbody>
+                                <tr>
+                                  <?php 
+                                    $sql = $con->query("SELECT * FROM result WHERE sn = '$sn' ");
+                                    $rows = mysqli_fetch_assoc($sql);
+                                    $rid = $pro->getResultId($rows['sn']);
+                                  ?>
+                                  <td><?=$pro->sqLx ('subject','sn',$rows['subject'],'subject')?></td>
+                                  <td><?=$rows['ca1']?></td>
+                                  <td><?=$rows['ca2']?></td>
+                                  <td><?=$rows['exam']?></td>
+                                  <td><?=$rows['total']?></td>
+                                </tr>
+                              </tbody>
                                 
                                 <tfoot>
                                 <tr>
