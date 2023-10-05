@@ -391,12 +391,15 @@
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="fa fa-power-off" aria-hidden="true"></i>
-              <p>
-                Log Out
-              </p>
+              <form action="logout.php" method="post">
+                <button type="submit" name="Logout" class="btn btn-secondary style="width:100%;">
+                  <i class="fa fa-power-off" aria-hidden="true"></i>
+                <p>
+                  Log Out
+                </p>
+                </button>
+              </form>
             </a>
-        
           </li>
         
         </ul>

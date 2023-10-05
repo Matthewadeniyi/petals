@@ -95,7 +95,7 @@
                         <div class="table-responsive">
                         <?php 
                                   $sn = $_GET['sn'];
-                                  // $resultid = $_GET['resultid'];
+                                  // ($resultid = $_GET['resultid']);
                                   // $subject = $_GET['subject'];
 
                                   $sql = $con->query("SELECT * FROM students WHERE sn='$sn' ");
@@ -110,8 +110,11 @@
                                     </tr>
                                     <tr>
                                         <th colspan="3" class="text-center">NAME:<?=$rows['firstname'] ?> <?=$rows['lastname'] ?></th>
-                                        <th colspan="3" class="text-center"> Registration NO : <?=$rows['regnumber'] ?> </th>
-                                        <th colspan="2" class="text-center">RESULT ID:</th>
+                                        <th colspan="3" class="text-center"> Registration NO: <?=$rows['regnumber'] ?> </th>
+                                        <th colspan="2" class="text-center">RESULT ID:
+          
+                                          <?= $pro->sqLx1('resultsum','sn','sid') ?>
+                                        </th>
                                         <th colspan="2" class="text-center">CLASS: <?=$pro->sqLx('class', 'sn',$rows['class'],'category') ?></th>
                                         <th colspan="2" class="text-center">GENDER: <?=$rows['gender'] ?></th>
                                     </tr>

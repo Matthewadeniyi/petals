@@ -390,27 +390,16 @@ class Profile{
             $sql = $con->query("SELECT * result WHERE resultid ='$resultid'");
             return $resultid;
          }
+         function getResultId(){
+            
+            global $con;
+                $sql = "SELECT * FROM result WHERE resultid = '$resultid' ";
+                    mysqli_query($con, $sql);                 
+                    return;
+                }
        
+         
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 $pro = new Profile();
 ?>
