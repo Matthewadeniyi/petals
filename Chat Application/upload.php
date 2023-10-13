@@ -1,8 +1,8 @@
 <?php 
-session_start();ob_start();
- include ("myclass.php");
- unset($_SESSION['id']);
-//  $id = $_SESSION['id'];
+session_start(); ob_start();
+ include ("control.php");
+//  unset($_SESSION['id']);
+ $id = $_SESSION['id'];
 
  if(isset($_POST['change'])){
     $target = 'upload/';
@@ -10,7 +10,7 @@ session_start();ob_start();
 
     move_uploaded_file($_FILES['picture']['tmp_name'],$targetfile);
     $db->query("UPDATE user SET picture = '$targetfile' WHERE id='$id' ");
-    echo 'Sucess'.$_SESSION['id'];
+    echo 'Sucess '.$_SESSION['id'];
  }
  
  ?>
@@ -41,16 +41,16 @@ session_start();ob_start();
 <div class="container">
         <div class="card mx-auto">
           <div class="card-header">
-            <h4>Upload picture</h4>
+            <h4>Upload picture </h4>
           </div>
           <form action="" method="POST" enctype="multipart/form-data">
                 <div class="card-body">
                     <div class="form-group">
-                      <input type="file" class="custom-file-input  form-control mt-4" name ='picture' id="exampleInputFile">
+                      <input type="file" class="custom-file-input  mt-4" name ='picture' id="picture">
                     </div>
                 </div>
                 <div class="card-footer">
-                <button type="submit" name="change" class="btn btn-primary">Login</button>
+                <button type="submit" name="change" class="btn btn-primary">Choose File</button>
                 </div>
 
             </form>
