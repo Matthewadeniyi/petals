@@ -20,7 +20,7 @@
         ">
             <input type="email" name ='email' id="email" style="border: 1px solid gray;
             border-radius: 5px;">
-            <button type="submit" onclick="addContact()">Add Contact</button>
+            <button type="button" onclick="addContact()">Add Contact</button>
 
         </form>
         <div class="left">
@@ -276,6 +276,8 @@
         $.ajax({
             type:'get',
             url:'myclass.php?email='+email+'&type=addcontact'
+        }).done(function(data){
+            alert(data)
         })
     }
     </script>
