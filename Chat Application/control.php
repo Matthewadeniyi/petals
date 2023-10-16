@@ -79,12 +79,14 @@ class profile{
         }
         return $row['chat'];
     }
-    function addContact($cid){
+
+    function addContact($email){
         $id = $_SESSION['id'];
-        
-        $sql = $db-query("SELECT FROM user WHERE email = $email");
-       $row =  mysqli_fetch_assoc($sql);
-        return $row['id'];
+        $sql = $db->query("SELECT FROM user WHERE email = $email");
+        $row =  mysqli_fetch_assoc($sql);
+        $cid =  $row['id'];
+        $sql = $db->query("INSERT INTO contact(id,cid) VALUES('$id','$cid')");
+        return;
     }
 };
 $pro = new profile();

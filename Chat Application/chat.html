@@ -18,9 +18,9 @@
         padding-top: 20px;
         padding-left: 20px;
         ">
-            <input type="email" name ='email' style="border: 1px solid gray;
+            <input type="email" name ='email' id="email" style="border: 1px solid gray;
             border-radius: 5px;">
-            <button type="button">Add Contact</button>
+            <button type="submit" onclick="addContact()">Add Contact</button>
 
         </form>
         <div class="left">
@@ -271,9 +271,13 @@
     //document.getElementById('user'+id2).style.display='none';
     }
 
-    // function addContact{
-
-    // }
+    function addContact(){
+        var email = document.getElementById('email').value;
+        $.ajax({
+            type:'get',
+            url:'myclass.php?email='+email+'&type=addcontact'
+        })
+    }
     </script>
 
 </body>
