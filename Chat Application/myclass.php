@@ -12,12 +12,16 @@ if(isset($_GET['type'])){extract($_GET);
     if($type=='contact'){
         $id = $_SESSION['id'];
     $user = [];
+    
     $sql = $db->query("SELECT * FROM user WHERE id != '$id' ORDER BY updated_at DESC ");
     while($row = mysqli_fetch_assoc($sql)){
         $id = $row['id'];
         $lastchat = $pro->lastChat($id);
+        $contact = $pro->myContact();
         $time = date('h:i A',$row['updated_at']);
-    $user[] = ['id'=>$id,'email'=>$lastchat,'picture'=>$row['picture'],'name'=>$row['name'],'time'=>$time];
+        if(in_array($id,$contact)){
+            $user[] = ['id'=>$id,'email'=>$lastchat,'picture'=>$row['picture'],'name'=>$row['name'],'time'=>$time];
+        }
     }
     echo json_encode($user);
      }

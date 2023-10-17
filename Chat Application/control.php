@@ -95,8 +95,18 @@ class profile{
         }else{
             $sql = $db->query("INSERT INTO contact(id,cid) VALUES('$id','$cid')");
         }
-       
         return "Operation Successful";
+    }
+
+    function myContact(){
+        global $db;
+        $contact = [];
+        $id = $_SESSION['id'];
+        $sql = $db->query("SELECT * FROM contact WHERE id='$id'");
+        while($row = mysqli_fetch_assoc($sql)){
+            $contact[] = $row['cid'];
+        }
+        return $contact;
     }
 
     
