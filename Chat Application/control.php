@@ -84,11 +84,22 @@ class profile{
         global $db;
         $id = $_SESSION['id'];
         $sql = $db->query("SELECT * FROM user WHERE email = '$email'");
-        $row =  mysqli_fetch_assoc($sql);
-        $cid =  $row['id'];
-        $sql = $db->query("INSERT INTO contact(id,cid) VALUES('$id','$cid')");
-        return;
+        if(mysqli_num_rows($sql) ==0){
+            return 'Email not found';
+        }
+        $row = mysqli_fetch_assoc($sql);
+        $cid = $row['id'];
+        $sql = $db->query("SELECT * FROM contact  WHERE cid ='$cid'");
+        if(mysqli_num_rows($sql) > 0){
+            return "Contact Already Exist";
+        }else{
+            $sql = $db->query("INSERT INTO contact(id,cid) VALUES('$id','$cid')");
+        }
+       
+        return "Operation Successful";
     }
+
+    
 };
 $pro = new profile();
 
