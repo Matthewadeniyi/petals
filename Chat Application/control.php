@@ -83,30 +83,37 @@ class profile{
     function addContact($email){
         global $db;
         $id = $_SESSION['id'];
-        $sql = $db->query("SELECT * FROM user WHERE email = '$email'");
-        if(mysqli_num_rows($sql) ==0){
-            return 'Email not found';
+        $sql = $db->query("SELECT * FROM user WHERE email ='$email' ");
+        if (mysqli_num_rows($sql) == 0) {
+          return 'Email not found';
         }
-        $row = mysqli_fetch_assoc($sql);
-        $cid = $row['id'];
-        $sql = $db->query("SELECT * FROM contact  WHERE cid ='$cid'");
-        if(mysqli_num_rows($sql) > 0){
-            return "Contact Already Exist";
-        }else{
-            $sql = $db->query("INSERT INTO contact(id,cid) VALUES('$id','$cid')");
+        $rows = mysqli_fetch_assoc($sql);
+        $cid = $rows['id'];
+        $sql = $db->query("SELECT * FROM contact WHERE cid ='$cid' ");
+        if (mysqli_num_rows($sql) > 0) {
+          return "contact already exist";
+        } else {
+          $sql = $db->query("INSERT INTO contact(id, cid) VALUES('$id', '$cid')");
         }
-        return "Operation Successful";
+        return 'Operation Successful';
     }
 
     function myContact(){
         global $db;
-        $contact = [];
         $id = $_SESSION['id'];
-        $sql = $db->query("SELECT * FROM contact WHERE id='$id'");
-        while($row = mysqli_fetch_assoc($sql)){
-            $contact[] = $row['cid'];
+        $contact = [];
+        $sql = $db->query("SELECT * FROM contact WHERE id = '$id'");
+        while ($rows = mysqli_fetch_assoc($sql)) {
+          $contact[] = $rows['cid'];
         }
         return $contact;
+    }
+
+    function userName($id,$col ='name'){
+        global $db;
+        $sql =$db->query("SELECT * FROM user WHERE id='$id'");
+        $row = mysqli_fetch_assoc($sql);
+        return $row[$col];
     }
 
     

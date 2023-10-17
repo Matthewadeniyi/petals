@@ -272,12 +272,14 @@
     }
 
     function addContact(){
-        var email = document.getElementById('email').value;
+
+        var email = document.getElementById("email").value;
+        // alert(email);
         $.ajax({
-            type:'get',
-            url:'myclass.php?email='+email+'&type=addcontact'
-        }).done(function(data){
-            alert(data);
+          type: "get",
+          url: "myclass.php?email=" + email + "&type=addcontact",
+        }).done(function (data) {
+          alert(data);
         });
     }
     </script>
