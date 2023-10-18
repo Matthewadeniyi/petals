@@ -89,13 +89,15 @@ class profile{
         }
         $rows = mysqli_fetch_assoc($sql);
         $cid = $rows['id'];
-        $sql = $db->query("SELECT * FROM contact WHERE cid ='$cid' ");
+        $sql = $db->query("SELECT * FROM contact WHERE cid ='$cid'");
         if (mysqli_num_rows($sql) > 0) {
           return "contact already exist";
         } else {
           $sql = $db->query("INSERT INTO contact(id, cid) VALUES('$id', '$cid')");
+         // echo "Success";
+          return 'Operation Successful';
         }
-        return 'Operation Successful';
+        return;
     }
 
     function myContact(){
