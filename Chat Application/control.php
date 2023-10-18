@@ -85,19 +85,21 @@ class profile{
         $id = $_SESSION['id'];
         $sql = $db->query("SELECT * FROM user WHERE email ='$email' ");
         if (mysqli_num_rows($sql) == 0) {
-          return 'Email not found';
+          //$x=0; 
+          return "Email not found";
         }
         $rows = mysqli_fetch_assoc($sql);
         $cid = $rows['id'];
-        $sql = $db->query("SELECT * FROM contact WHERE cid ='$cid'");
+        $sql = $db->query("SELECT * FROM contact WHERE id='$id' AND cid ='$cid'");
         if (mysqli_num_rows($sql) > 0) {
-          return "contact already exist";
+          //$x=1; 
+          return "Contact Already Exists";
         } else {
           $sql = $db->query("INSERT INTO contact(id, cid) VALUES('$id', '$cid')");
-         // echo "Success";
-          return 'Operation Successful';
+          //$x=2;
+           //return "";
         }
-        return;
+        return "Operation Sucessful!";
     }
 
     function myContact(){

@@ -47,7 +47,7 @@ if(isset($_GET['type'])){extract($_GET);
         echo $_SESSION['id'];
     }
     if($type=='addcontact'){
-        $pro->addContact($email);
+       echo $pro->addContact($email);
     }
     
         
