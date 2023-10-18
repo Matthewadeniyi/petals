@@ -38,7 +38,7 @@ body {
   position: relative;
   top: 50%;
   left: 50%;
-  width: 80%;
+  width: 10%;
   height: 75%;
   background-color: var(--white);
   transform: translate(-50%, -50%);
@@ -57,6 +57,7 @@ body {
   height: 100%;
   border: 1px solid var(--light);
   background-color: var(--white);
+  position: relative;
  
 }
 .container .left .top {
@@ -75,6 +76,7 @@ body {
   content: "";
   background-color: var(--light);
   transform: translate(-50%, 0);
+  
 }
 .container .left input {
   float: left;
@@ -109,6 +111,7 @@ body {
   border-left: 1px solid var(--light);
   width: calc(100% + 2px);
   
+  
 }
 .container .left .people .person {
   position: relative;
@@ -117,6 +120,7 @@ body {
   cursor: pointer;
   background-color: var(--white);
 }
+
 .container .left .people .person:after {
   position: absolute;
   bottom: 0;

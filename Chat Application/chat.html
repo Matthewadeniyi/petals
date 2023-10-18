@@ -8,7 +8,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 <link rel="stylesheet" href="styles/style.css">
-
+ <style>
+    .left{
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+   
+ </style>
 </head>
 <body>
 <!-- partial:index.partial.html -->
@@ -25,8 +31,10 @@
         </form>
         <div class="left">
             <div class="top">
-                <input type="text" placeholder="Search" />
-                <a href="javascript:;" class="search"></a>
+                <form  method="post">
+                    <input type="text" style="width:150px;" placeholder="Search" id="search" onkeyup="mySearch()" />
+                    <a href="javascript:;" class="search" ></a>
+                </form>
             </div>
             <ul class="people" id="people">
               
@@ -282,7 +290,11 @@
           alert(data);
         });
     }
-    // alert("ma")
+    function mySearch(){
+
+            var search = document.getElementById('search').value;
+         
+    }
     </script>
 
 </body>
