@@ -43,15 +43,12 @@ body {
   background-color: var(--white);
   transform: translate(-50%, -50%);
 }
-
 .container .left {
   float: left;
   width: 37.6%;
   height: 100%;
   border: 1px solid var(--light);
   background-color: var(--white);
-  position: relative;
- 
 }
 .container .left .top {
   position: relative;
@@ -65,11 +62,10 @@ body {
   left: 50%;
   display: block;
   width: 80%;
-  /* height: 1px; */
+  height: 1px;
   content: "";
   background-color: var(--light);
   transform: translate(-50%, 0);
-  
 }
 .container .left input {
   float: left;
@@ -103,8 +99,6 @@ body {
   border-right: 1px solid var(--light);
   border-left: 1px solid var(--light);
   width: calc(100% + 2px);
-  
-  
 }
 .container .left .people .person {
   position: relative;
@@ -113,7 +107,6 @@ body {
   cursor: pointer;
   background-color: var(--white);
 }
-
 .container .left .people .person:after {
   position: absolute;
   bottom: 0;

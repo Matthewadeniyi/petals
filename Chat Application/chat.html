@@ -7,7 +7,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-<link rel="stylesheet" href="styles/style.css">
+<link rel="stylesheet" href="style.css">
  <style>
     .left{
         overflow-x: hidden;
@@ -188,7 +188,15 @@
                 //alert(data);
             var i = 0;
             while(i < user.length){
-                $('#people').append(person(user[i]['name'],user[i]['email'],user[i]['picture'],user[i]['time'],user[i]['id']));
+                $('#people').append(
+                    person(
+                        user[i]['name'],
+                        user[i]['email'],
+                        user[i]['picture'],
+                        user[i]['time'],
+                        user[i]['id']
+                    )
+              );
                 i++;
             }
         });
@@ -213,27 +221,58 @@
     lastUser();
     
     function activeUser(id,name){
-        localStorage.setItem('activeid',id);
-        localStorage.setItem('activename',name);
-        myId();
-    $('#activeUser').html(name);
-    $('#allchat').html('');
-    $.ajax({
-        type: 'get',
-         url: 'myclass.php?id2='+id+'&type=chat'
-    }).done(function(data){
-        //do something with data
-      var chat = JSON.parse(data);
-    //alert(data);
-    var i = 0;
-    while(i < chat.length){
-    $('#allchat').append(allChats(chat[i]['id'],chat[i]['id2'],chat[i]['chat']));
-    i++;
-    }
-    })
-    document.getElementById('chat').focus();
+            localStorage.setItem('activeid',id);
+            localStorage.setItem('activename',name);
+            myId();
+        $('#activeUser').html(name);
+        $('#allchat').html('');
+        $.ajax({
+            type: 'get',
+            url: 'myclass.php?id2='+id+'&type=chat'
+        }).done(function(data){
+            //do something with data
+        var chat = JSON.parse(data);
+        //alert(data);
+        var i = 0;
+        while(i < chat.length){
+        $('#allchat').append(allChats(chat[i]['id'],chat[i]['id2'],chat[i]['chat']));
+        i++;
+        }
+        })
+        document.getElementById('chat').focus();
     }
     
+    function newMessage(id,name){
+        localStorage.setItem("activeid", id);
+        localStorage.setItem("activename", name);
+        myId();
+        $.ajax({
+            type:"get",
+            url:"myclass.php?id2="+id +"&type=chatnew",
+        }).done(function(data){
+            //do something with  data
+            var chat = JSON.parse(data);
+            // alert(data);
+            var i = 0;
+            while(i< chat.length){
+                if(Number(chat[i]["id"]) != Number(myId())){
+                    $("#allchat").append(
+                        allChats(chat[i]["id"], chat[i]["id2"], chat[i]["chat"])
+                    );
+                }
+             i++
+            }
+        });
+        document.getElementById("chat").focus();
+    }
+
+   setInterval(function () {
+        var id = localStorage.getItem("activeid");
+        var name = localStorage.getItem("activename");
+        newMessage(id, name);
+      }, 3000);
+    
+
     function myId(){
         $.ajax({
             type: 'get',
