@@ -13,7 +13,7 @@ if(isset($_GET['type'])){extract($_GET);
         $id = $_SESSION['id'];
     $user = [];
     
-    $sql = $db->query("SELECT * FROM user WHERE id != '$id' ORDER BY updated_at DESC ");
+    $sql = $db->query("SELECT * FROM user WHERE id != '$id' AND name LIKE '%$search%' ORDER BY updated_at DESC ");
     while($row = mysqli_fetch_assoc($sql)){
         $id = $row['id'];
         $lastchat = $pro->lastChat($id);

@@ -41,7 +41,7 @@
             </form>
             <div class="top">
                 <form  method="post">
-                    <input type="text" style="width: 169px" placeholder="Search" id="search" onkeyup="mySearch()" />
+                    <input type="text" style="width: 169px" placeholder="Search" id="search" onkeyup="mySearch(this.value)" />
                     <a href="javascript:;" class="search" ></a>
                 </form>
             </div>
@@ -187,12 +187,13 @@
   <script  src="script/script.js"></script>
   <script src="jquery.min.js"></script>
   <script>
-    function loadContact(){
+    function loadContact(search=''){
         $('#people').html('');
         $.ajax({
             type: 'get',
-            url: 'myclass.php?type=contact'
+            url: 'myclass.php?type=contact&search='+search
         }).done(function(data){
+            localStorage.setItem('mycontacts',data);
             var user = JSON.parse(data);
                 //alert(data);
             var i = 0;
@@ -275,11 +276,11 @@
         document.getElementById("chat").focus();
     }
 
-   setInterval(function () {
-        var id = localStorage.getItem("activeid");
-        var name = localStorage.getItem("activename");
-        newMessage(id, name);
-      }, 3000);
+//    setInterval(function () {
+//         var id = localStorage.getItem("activeid");
+//         var name = localStorage.getItem("activename");
+//         newMessage(id, name);
+//       }, 3000);
     
 
     function myId(){
@@ -338,11 +339,11 @@
           alert(data);
         });
     }
-    function mySearch(){
-
-            var search = document.getElementById('search').value;
-         
+    function mySearch(search){
+        loadContact(search);
     }
+
+ 
     </script>
 
 </body>
