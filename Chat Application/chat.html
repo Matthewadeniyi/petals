@@ -13,6 +13,7 @@
         overflow-x: hidden;
         overflow-y: scroll;
     }
+    
    
  </style>
 </head>
@@ -20,19 +21,27 @@
 <!-- partial:index.partial.html -->
 <div class="wrapper">
     <div class="container">
-        <form  method="post" style="height: 40px;
-        padding-top: 20px;
-        padding-left: 20px;
-        ">
-            <input type="email" name ='email' id="email" style="border: 1px solid gray;
-            border-radius: 5px;">
-            <button type="button" onclick="addContact()">Add Contact</button>
-
-        </form>
         <div class="left">
+            <form  method="post" style="margin-top: 10px;margin-left: 10px;
+            
+            ">
+                <input type="email" name ='email' class="input" id="email" style="
+                border-radius: 5px;
+                height: 25px;
+                width: 160px;
+                border-radius: 9px;
+                margin: 2px;"
+                >
+                <button type="button" onclick="addContact()" style="border: 1px solid #00b0ff;
+                background-color: #00b0ff;
+                color: white;
+                padding: 6px;
+                border-radius: 5px;">Add Contact</button>
+    
+            </form>
             <div class="top">
                 <form  method="post">
-                    <input type="text" style="width:150px;" placeholder="Search" id="search" onkeyup="mySearch()" />
+                    <input type="text" style="width: 169px" placeholder="Search" id="search" onkeyup="mySearch()" />
                     <a href="javascript:;" class="search" ></a>
                 </form>
             </div>
