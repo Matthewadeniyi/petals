@@ -1,0 +1,651 @@
+body{
+	background: white;
+	margin: 0;
+	padding: 0;
+	font-family: "Verdana", sans-serif;
+	
+}
+
+#heading {
+	position: fixed;
+	background: #0A2239;
+	padding: 20px;
+	width: 100%;
+	height: 60px;
+}
+
+#heading #user_icon {
+	width: 30px;
+	height: 30px;
+	border-radius: 100px;
+	margin-bottom: 10px;
+	margin-top: -35px;
+	float: right;
+}
+
+#heading h2{
+	color: #fff;
+	margin-top: -25px;
+	margin-bottom: 20px;
+	font-size: 15px;
+	float: right;
+	margin-right: 10px;
+}
+
+
+.left-area h3 {
+	color: #fff;
+	margin-top: -25px;
+	text-transform: uppercase;
+	font-size: 22px;
+	font-weight: 900;
+}
+
+.left-area span{
+	color: #1DC4E7;
+}
+
+.logout_btn {
+	padding: 5px;
+	background: #19b3d3;
+	text-decoration: none;
+	float: right;
+	margin-top: -40px;
+	margin-right: 120px;
+	border-radius: 3px;
+	font-size: 15px;
+	font-weight: 600;
+	color: #fff;
+	transition: 0.5s;
+	border: 1px #19b3d3 solid;
+	transition-property: background;
+}
+
+.logout_btn:hover {
+	background: #0d9dbb;
+}
+
+.sidebar a {
+	color: #fff;
+	display: inline-block;
+	width: 100%;
+	line-height: 60px;
+	text-decoration: none;
+	padding-left: 40px;
+	box-sizing: border-box;
+	transition:0.5s;
+	transition-property: background;
+}
+
+.nav_links a:hover {
+background: #19b3d3;
+}
+
+.nav_links li {
+	padding-left: -50px;
+}
+
+.sidebar i {
+padding-right:10px;
+}
+
+.nav_links{
+	margin-top: 200px;
+}
+
+.nav_links a {
+	margin-left: -35px;
+	width: 300px;
+}
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 60px;
+  left: 0;
+  background-color: #0f3457;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+.sidebar h4{
+    color: #ccc;
+    margin-top: 0;
+    margin-bottom: 20px;
+    }
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.sidebar .profile_image{
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    margin-bottom: 10px;
+    }
+
+.sidebar center {
+	margin-left: 50px;
+}    
+
+/*.sidebar{
+	background: #0f3457;
+	margin-top: 60px;
+	padding-top: 30px;
+	position: fixed;
+	left: 0;
+	width: 250px;
+	height: 100%;
+	transition-property: left;
+}
+
+.sidebar .profile_image{
+	width: 100px;
+	height: 100px;
+	border-radius: 100px;
+	margin-bottom: 10px;
+}
+
+.sidebar h4{
+	color: #fff;
+	margin-top: 0;
+	margin-bottom: 20px;
+}
+
+.sidebar a {
+	color: #fff;
+	display: inline-block;
+	width: 100%;
+	line-height: 60px;
+	text-decoration: none;
+	padding-left: 40px;
+	box-sizing: border-box;
+	transition:0.5s;
+	transition-property: background;
+}
+
+.sidebar a:hover {
+	background: #19b3d3;
+}
+
+.sidebar i {
+	padding-right: 10px;
+}*/
+
+label #sidebar_btn {
+	z-index: 1;
+	color: #fff;
+	position: fixed;
+	cursor: pointer;
+	left: 300px;
+	font-size: 20px;
+	margin:-15px 0;
+	transition: 0.5s;
+	transition-property: color;
+}
+
+
+
+.content{
+	background-position: center;
+	background-size: cover;
+	height: 100vh;
+	transition: 0.5s;
+}
+
+
+#check:checked ~ .content{
+	margin-left: 60px;
+}
+
+
+#check {
+	display: none;
+}
+
+#school_pic {
+	background: url("../images/school.png") no-repeat;
+	background-size: cover;
+	background-position: center;
+  	min-height: 400px;
+  	margin:0;
+
+}
+
+.first_div_text {
+	color: #fff;
+	text-align: center;
+	/*-webkit-text-stroke: 1px #000000;*/
+
+}
+
+#bayview_head {
+	padding-top: 200px;
+	font-weight: bolder;
+}
+
+#bayview_motto {
+	padding-top: 20px;
+	font-size: 20px !important;
+}
+
+
+
+#log_in, #sign_up {background-color: #19b3d3;
+	border-radius: 4px;
+	text-align: center;
+	width: 10%;
+	color:white;
+	height: 60px;
+	margin-top: 1em;
+	border: 1px #19b3d3 solid;
+}	
+
+
+#log_in {
+	margin-left: 570px;
+
+}
+
+#log_in:hover {
+	background: #0d9dbb;;
+}
+
+#sign_up:hover {
+	background: #0d9dbb;;
+}
+
+@media screen and (min-width: 640px) and (max-width:1024px){
+
+	#log_in {
+		margin-left: 250px;
+	}
+	#log_in, #sign_up {
+		height: 40px;
+	}
+
+	#sign_up {
+		width: 12%;
+	}
+}
+
+#second_div{
+	margin-top: 100px;
+	margin-left: 200px;
+	margin-right: 200px;
+}
+
+#hostels{
+	background: url("../images/background2.jpg") no-repeat;
+	background-size: cover;
+	width: 137.3%;
+	margin-left: -200px;
+	background-position: center;
+  	min-height: 300px;
+}
+#bayview_oview{
+	float: left;
+	width: 50%;
+	text-transform: uppercase;
+}
+
+#bayview_brief{
+	float: right;
+	width: 50%;
+}
+
+#hostel_details{
+	margin-top: 230px;
+	color: white;
+	text-transform: uppercase;
+}
+
+#hostel_details h5 {
+	text-align: left;
+	border-bottom: 1px solid white;
+	width: 70%;
+	margin-left: 20px;
+	margin-top: 20px;
+}
+
+#haligah_block {
+	margin-left: 130px !important;
+	background: #0f3457;
+	padding-top: 50px;
+	width: 300px;
+	height: 250px;
+}
+
+#niang_block {
+	background: #176087;
+	padding-top: 50px;
+	width: 300px;
+	height: 250px;
+	margin-top: -250px;
+	margin-left: 430px !important;
+}
+
+#matalla_block {
+	background: #1D84B5;
+	padding-top: 50px;
+	width: 300px;
+	height: 250px;
+	margin-left: 730px !important;
+	margin-top: -250px;
+}
+
+#abdi_block {
+	background: #53A2BE;
+	padding-top: 50px;
+	width: 300px;
+	height: 250px;
+	margin-left: 1030px !important;
+	margin-top: -250px;
+}
+
+.arrow {
+	margin-top: 40px;
+	padding-left: 130px;
+}
+
+#footer_section {
+	background: #0A2239;
+	width: 137.3%;
+	height: 300px;
+	margin-top: -2px;
+	margin-left: -200px !important;
+}
+
+.footer_details{
+	color: white;
+	margin-left: 50px;
+}
+
+#social_media {
+	border-right: 1px solid white;
+	width: 400px;
+}
+
+#contact_details {
+	margin-top: -248px;
+	margin-left: 500px;
+	width: 400px;
+	height: 250px;
+	border-right: 1px solid white;
+}
+
+#footer_section h4 {
+	text-align: center;
+	text-transform: uppercase;
+	color: white;
+	font-weight: bold;margin-bottom: 20px;
+}
+
+#locate_us {
+	margin-top: -248px;
+	width: 400px;
+	margin-left: 950px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size:18px}
+}
+
+
+
+#modal_btn {   
+      background-color:#0A2239 ;   
+      width: 100%; 
+      height: 60px; 
+      color:white;   
+      padding: 15px;   
+      margin: 15px 20px;  
+      border: none;   
+      cursor: pointer;  
+      border-radius: 5px;
+  
+          }   
+  /* this is the styling for both of the input fields */
+  input[type=email], input[type=password], input[type=text] {   
+          width: 90%;   
+          height: 65px;
+          margin: 15px 10px 5px 20px;  
+          padding: 15px 40px;   
+          display: inline-block;   
+          border: none;            
+          background-color: #F3F3F3 ;
+          box-sizing: border-box; 
+          
+      
+      }
+
+  #fname, #lname{
+      /* background-repeat: no-repeat;
+      background-size: 5%;
+      background-position: 95%; */
+  }
+  
+  #email{
+      background-image: url("mdi_email.svg"); 
+      background-repeat: no-repeat;
+      background-size: 5%;
+      background-position: 95%;
+  }
+
+  #password{
+      background-image: url("material-symbols_lock.svg"); 
+      background-repeat: no-repeat;
+      background-size: 5%;
+      background-position: 95%;
+  }
+  
+      
+  #Container {   
+      
+      top: 30%;
+      left: 50%;
+      width: 27em;
+      height: 10em;
+      margin-top: -9em;
+      margin-left: -15em;
+      border: 1px solid #666;
+      background-color: white ;
+      position: fixed;
+      border-radius: 7px;
+
+  }   
+  
+  .toptext{
+      text-align: center;
+      font-size: 10px;
+      color: #8b8888 ;
+      margin: auto;
+  }
+
+  #footer {
+      text-decoration: none;
+      margin-left: 120px;
+      font-size: 15px;  
+  }
+
+  .bottomtext{
+      text-align: center;
+      font-size: smaller;
+      margin-top: 2px;
+
+  }
+  .header{
+      text-align: center;
+      margin-top: 25px;
+      margin-bottom: 5px;
+      /* font-size: larger; */
+      color: #1DC4E7;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+
+  .right{
+      float: right;
+      font-size: small;
+      margin: auto;
+      padding: 0px 10px;
+  }
+
+  .icon{
+
+      width: 60px;
+      height: 45px;
+      margin: 5px 60px 0px;
+  }
+
+  .icondiv{
+      text-align: center;
+  }
+
+  .crossfade{
+      margin: 0;
+      padding: 0;
+      /* background-image: url('hostel1.jpg'); */
+  }
+
+  .crossfade > figure {
+      animation: imageAnimation 30s linear infinite 0s;
+      backface-visibility: hidden;
+      background-size: cover;
+      background-position: center center;
+      color: transparent;
+      height: 100%;
+      left: 0px;
+      opacity: 0;
+      position: absolute;
+      top: 0px;
+      width: 100%;
+      z-index: 0;
+      padding: 0;
+  }
+
+  .crossfade > figure:nth-child(1) { background-image: url('hostel1.jpg'); }
+  .crossfade > figure:nth-child(2) {
+  animation-delay: 6s;
+  background-image: url('hostel2.jpg');
+  }
+  .crossfade > figure:nth-child(3) {
+  animation-delay: 12s;
+  background-image: url('hostel3.jpg');
+  }
+  .crossfade > figure:nth-child(4) {
+  animation-delay: 18s;
+  background-image: url('hostel4.jpg');
+  }
+  .crossfade > figure:nth-child(5) {
+  animation-delay: 24s;
+  background-image: url('hostel5.jpg');
+  }
+  
+  @keyframes 
+  imageAnimation {  
+      0% {
+      animation-timing-function: ease-in;
+      opacity: 0;
+      }
+      8% {
+          animation-timing-function: ease-out;
+          opacity: 1;
+      }
+      17% {
+          opacity: 1
+      }
+      25% {
+          opacity: 0
+      }
+      100% {
+          opacity: 0
+      }
+  }
+
+
+.mpopup {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding-top: 80px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    margin: auto;
+    margin-top: -40px !important;
+    padding: 0;
+    width: 470px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    border-radius: 0.3rem;
+}
+.modal-header {
+    padding: 2px 12px;
+    background-color: #ffffff;
+    color: #333;
+    border-bottom: 1px solid #e9ecef;
+    border-top-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
+}
+.modal-header h2{
+    font-size: 1.25rem;
+    margin-top: 14px;
+    margin-bottom: 14px;
+}
+.modal-body {
+    padding: 2px 12px;
+
+}
+.modal-footer {
+    padding: 1rem;
+    background-color: #ffffff;
+    color: #333;
+    border-top: 1px solid #e9ecef;
+    border-bottom-left-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+    text-align: right;
+}
+
+.close {
+    color: #888;
+    margin-left: 10px;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover, .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* add animation effects */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+

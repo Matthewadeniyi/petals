@@ -1,0 +1,265 @@
+
+#cleaners{
+    width: 100%;
+    margin: auto;
+    margin-top: 20px;
+    /* border-collapse: collapse; */
+    
+}
+
+body {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+  /* font-family: "Lato", sans-serif; */
+}
+
+#delete{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 50px;
+}
+#delete button{
+  background-color: #0A2239;
+  color: white;
+  height: 50px;
+  width: 150px;
+  border-radius: 3px;
+}
+
+.top_navbar{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+    padding-bottom : 10px;
+	background: #0A2239;
+	box-shadow: 1px 0 2px rgba(0,0,0,0.125);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+
+.top_navbar .menu{
+	width: calc(100% - 250px);
+	padding: 0 25px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.top_navbar .hamburger{
+	font-size: 25px;
+	cursor: pointer;
+	color: white;
+	background-color: transparent;
+	border: none;
+}
+
+.top_navbar .hamburger:hover{
+	color: #007dc3;
+}
+center h4{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.menu h3 {
+
+  padding-left:10px ;
+  color: #fff;
+  margin-top: 20px;
+  text-transform: uppercase;
+  font-size: 22px;
+  font-weight: 900;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+
+  }
+  
+  .menu span{
+  color: #1DC4E7;
+  }
+
+  .logout_btn {
+	
+	margin-top: 20px;
+	margin-bottom: 10px;
+	/* border-radius: 2px; */
+	font-size: 15px;
+	font-weight: 600;
+	color: #fff;
+	transition: 0.5s;
+	transition-property: background;
+  }
+  
+  .logout_btn:hover {
+  	background: #0d9dbb;
+	
+  }
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 70px;
+  left: 0;
+  background-color: #0f3457;
+  overflow-x: hidden;
+  overflow-y:hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+.sidebar h4{
+    color: #ccc;
+    margin-top: 0;
+    margin-bottom: 20px;
+    }
+    
+.sidebar a {
+	color: #fff;
+	display: inline-block;
+	width: 100%;
+	line-height: 60px;
+	text-decoration: none;
+	padding-left: 40px;
+	box-sizing: border-box;
+	transition:0.5s;
+	transition-property: background;
+}
+
+.sidebar li:hover {
+background: #19b3d3;
+}
+
+.sidebar i {
+padding-right: 10px;
+}
+  
+/* 
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+} */
+
+/* .sidebar a:hover {
+  color: #f1f1f1;
+} */
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.sidebar .profile_image{
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    margin-bottom: 10px;
+    }
+
+.nav_links li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: px;
+  
+}
+
+.nav_links li a{
+  padding-left: 15px;
+}
+
+.nav_links li img{
+  height: 15px; 
+  margin-left: 20px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  /* padding: 10px 15px; */
+  border: none;
+  margin-top : 30px;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+#main {
+	margin-top: 70px;
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+#edit {   
+    background-color:#0A2239 ;   
+    /* width: 60%; 
+    height: 60px;  */
+    float: right;
+      color:white;   
+      padding: 15px;   
+       margin: 15px 20px;   
+      border: none;   
+      cursor: pointer;  
+      border-radius: 5px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: large;
+    /* margin-left: 250px;*/
+    margin-top: 50px; 
+
+
+} 
+
+h2{
+    font-size: 2rem; 
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    padding-bottom: 20px;
+    /* padding-top: 10px; */
+    font-weight: bold;
+    color: #1DC4E7;
+     text-shadow:0px 0px 1px #0A2239; 
+    /* padding-left: 20px; */
+  }
+  
+  #head{
+    color: #0A2239;
+  }
+
+/* #page_head{
+    padding-bottom: 30px;
+    height: 35%;
+    background-image: url("cleaners.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* border: 2px solid red; 
+    margin-top: -40px;
+    margin-left: -15px;
+    margin-bottom: 20px;
+    margin-right: -20px;
+    filter: blur(2px);
+     margin: 0; 
+  } */
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+/* #cleaners{
+    width: 100%;
+    margin: auto;
+    margin-top: 20px;
+    /* border-collapse: collapse; 
+  } */
